@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="public/assetss/CSSfiles/style.css" />
+    <!-- fontawsome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body class="bg-black">
+    <!-- --------------------------------header section include hero banner and navbar---------------------------- -->
+    <header id="header">
+      <nav class="container">
+        <div
+          class="text-white navbar navbar-expand-lg navbar-dark col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+        >
+          <h1 class="nav-brand col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+            <span class="text-brown">U</span>sman
+          </h1>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapsibleNavbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <ul
+            class="navbar-nav collapse navbar-collapse col-xl-4 col-lg-4 col-md-4 col-sm-8 col-8 ml-auto"
+            id="collapsibleNavbar"
+          >
+            <li class="nav-item"><a href="#header" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+            <li class="nav-item"><a href="#myWork" class="nav-link">Portfolifo</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div
+        id="header-text"
+        class="container col-xl-10 col-lg-10 col-md-10 col-sm-12 col-12"
+      >
+        <p class="">Web Developer</p>
+        <h1 class="font-weight-bold">
+          Hi, i'm <span class="text-brown">Usman <br /> </span> raza from
+          Pakistan
+        </h1>
+      </div>
+    </header>
+    <!-- --------------------------------------------about section------------------------------------------------ -->
+    <div id="about">
+      <div class="container">
+        <div class="d-flex flex-wrap mt-5">
+          <div class="about-col-1 col-xl-4">
+            <img src="public/assetss/images/OIG4.jpeg" alt="" />
+          </div>
+          <div class="about-col-2 col-xl-7">
+            <h1>About Me</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Accusantium ex quo consectetur molestias architecto laudantium
+              illum quidem tempore a magni, repellendus culpa quis nihil. Sint
+              eligendi ullam exercitationem quidem deserunt.
+            </p>
+            <div class="tab-titles">
+              <p class="tab-links active-link" onclick="opentab('skills')">
+                Skills
+              </p>
+              <p class="tab-links" onclick="opentab('Experience')">
+                Experience
+              </p>
+              <p class="tab-links" onclick="opentab('education')">Education</p>
+            </div>
+            <div class="tab-contents active-tab" id="skills">
+              <ul>
+                <li><span>UI/UX</span><br />Desingng web /app interface</li>
+                <li><span>Web development</span><br />web app development</li>
+                <li>
+                  <span>App development</span><br />android IOS app development
+                </li>
+              </ul>
+            </div>
+            <div class="tab-contents" id="Experience">
+              <ul>
+                <li><span>UI/UX</span><br />Desingng web /app interface</li>
+                <li><span>Web </span><br />Lorem, ipsum dolor.</li>
+                <li>
+                  <span>App development</span><br />android IOS app development
+                </li>
+              </ul>
+            </div>
+            <div class="tab-contents" id="education">
+              <ul>
+                <li><span>UI/UX</span><br />Desingng web /app interface</li>
+                <li><span>Web development</span><br />web app development</li>
+                <li>
+                  <span>App development</span><br />Lorem ipsum dolor sit.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ==============================================services ================================================== -->
+    <div id="services" class="pt-5 pb-5">
+      <div class="container">
+        <h1>My Services</h1>
+        <div class="row">
+          <div
+            class="p-3 col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mr-lg-5 rounded mt-5 serviecs-list"
+          >
+            <h1 class="display-4"><i class="fa-solid fa-code"></i></h1>
+            <h1>Web design</h1>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit enim
+              accusantium fugit veniam dicta consectetur, veritatis hic eius
+            </p>
+            <a href="" class="learn-btn">learn more</a>
+          </div>
+          <div
+            class="p-3 col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 ml-lg-5 mr-lg-5 rounded mt-5 serviecs-list"
+          >
+            <h1 class="display-4"><i class="fa-solid fa-crop"></i></h1>
+            <h1>Web development</h1>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit enim
+              accusantium
+            </p>
+            <a href="" class="learn-btn">learn more</a>
+          </div>
+          <div
+            class="p-3 col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 ml-lg-5 rounded mt-5 serviecs-list"
+          >
+            <h1 class="display-4"><i class="fa-brands fa-app-store"></i></h1>
+            <h1>App development</h1>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit enim
+              accusantium fugit 
+            </p>
+            <a href="" class="learn-btn">learn more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- =======================================My work or portfolio section====================================== -->
+    <div id="myWork">
+        <div class="container">
+            <h1>My Work</h1>
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mt-5 mr-lg-5 work-list">
+                     <img src="public/assetss/images/OIG2.jpeg" alt="" class="img-flui ">
+                <div class="layer">
+                    <h3>Social media app</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, veniam?</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mt-5 ml-lg-5 mr-lg-5 work-list" >
+                     <img src="public/assetss/images/OIG2 (1).jpeg" alt="" class="img-flui ">
+                <div class="layer">
+                    <h3>E-commerence app</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, veniam?</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12 mt-5 ml-lg-5 work-list">
+                     <img src="public/assetss/images/download.jpeg" alt="" class="img-flui ">
+                <div class="layer">
+                    <h3>Mobile app</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex, veniam?</p>
+                    <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                </div>
+            </div>
+            <a href="#" class="btn d-flex ml-auto mr-auto mt-5  ">See More</a>
+        </div>
+    </div>
+    <!--================================================ newsletter ===============================================-->
+    <div id="contact" class="pt-5">
+        <div class="container">
+            <div class="row">
+                <div class=" col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                    <h1 class="Conatct-subtitle">Contact Me</h1>
+                    <p><i class="fa-solid fa-paper-plane text-brown mr-2"></i>Conatct@gamil.com</p>
+                    <p><i class="fa-solid fa-phone text-brown mr-2"></i>09876543212</p>
+                    <div class="d-flex">
+                        <i class="fa-brands fa-facebook m-1  contact-icons"></i>
+                        <i class="fa-brands fa-twitter m-1 contact-icons"></i>
+                        <i class="fa-brands fa-instagram m-1 contact-icons"></i>
+                        <i class="fa-brands fa-linkedin m-1 contact-icons"></i>
+                    </div>
+                    <button class="contact-btn mt-4 p-1"><a href="public/assetss/CV/Resume.pdf" download>Download CV</a></button>
+                </div>
+                <div class=" col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                    <form action="" class="d-flex flex-column " name="submit-to-google-sheet">
+
+                        <input type="text" name="Name" id="" placeholder="Your Name" required class="text-white bg-dark border-0 mt-2">
+
+                        <input type="text" name="Email" id="" placeholder="Your email" required class="text-white bg-dark border-0 mt-2">
+                        <textarea name="Message" id="" cols="30" rows="10" placeholder="Your Message" class="text-white bg-dark border-0 mt-2"></textarea>
+                        <button class="contact-btn mt-2 text-white p-1">Submit</button>
+                    </form>
+                    <span id="msg"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- =================================================footer=================================================== -->
+    <footer class="bg-dark text-center mt-2 pt-2 pb-1">
+        <p>Copy right by usman &#10084; made by Usman</p>
+    </footer>
+    <script src="public/assetss/javascriptfiles/script.js"></script>
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwmmW_Zk7mr3kEpXMrk7gMY3u9oN_VpP7C66gyFEnXHw4ixW-PvlrSsL3-FujZewyGx/exec'
+      const form = document.forms['submit-to-google-sheet']
+      const msg  = document.getElementById("msg")
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+            msg.innerHTML= " Message sent successfully"
+            setTimeout(function(){
+              msg.innerHTML=""
+            },3000)
+            form.reset()
+          })
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
+  </body>
+</html>
