@@ -1,0 +1,63 @@
+---
+import Icon from './Icon.astro';
+
+const links = [
+  { href: '#about', label: 'About' },
+  { href: '#work', label: 'Work' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#contact', label: 'Contact' },
+];
+---
+
+<header class="site-header" data-header>
+  <a href="#top" class="brand" aria-label="Usman Akhtar, back to top">
+    <span>UA</span>
+    <span class="brand-name">Usman Akhtar</span>
+  </a>
+
+  <nav class="desktop-nav" aria-label="Primary navigation">
+    {links.map((link) => <a href={link.href}>{link.label}</a>)}
+  </nav>
+
+  <a class="header-cta" href="mailto:akhtarusman716@gmail.com">
+    Let's talk <Icon name="arrow" class="size-4" />
+  </a>
+
+  <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-navigation" data-menu-button>
+    <Icon name="menu" class="menu-open size-6" />
+    <Icon name="close" class="menu-close size-6" />
+  </button>
+
+  <nav id="mobile-navigation" class="mobile-nav" aria-label="Mobile navigation" data-mobile-nav>
+    {links.map((link, index) => (
+      <a href={link.href} style={`--index: ${index}`}>{link.label}</a>
+    ))}
+    <a class="mobile-contact" href="mailto:akhtarusman716@gmail.com">Start a conversation</a>
+  </nav>
+</header>
+
+<script>
+  const header = document.querySelector('[data-header]');
+  const menuButton = document.querySelector<HTMLButtonElement>('[data-menu-button]');
+  const mobileNav = document.querySelector<HTMLElement>('[data-mobile-nav]');
+
+  const closeMenu = () => {
+    header?.classList.remove('menu-active');
+    menuButton?.setAttribute('aria-expanded', 'false');
+    menuButton?.setAttribute('aria-label', 'Open navigation');
+    document.body.classList.remove('menu-open');
+  };
+
+  menuButton?.addEventListener('click', () => {
+    const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+    header?.classList.toggle('menu-active', !isOpen);
+    menuButton.setAttribute('aria-expanded', String(!isOpen));
+    menuButton.setAttribute('aria-label', isOpen ? 'Open navigation' : 'Close navigation');
+    document.body.classList.toggle('menu-open', !isOpen);
+  });
+
+  mobileNav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) closeMenu();
+  });
+</script>
