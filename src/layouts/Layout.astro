@@ -26,6 +26,11 @@ const { title, description } = Astro.props;
     <meta property="og:image" content="/images/usman-akhtar.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
     <title>{title}</title>
+    <script is:inline>
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('motion-ready');
+      }
+    </script>
   </head>
   <body class="bg-ink text-paper antialiased selection:bg-mint selection:text-ink">
     <a class="skip-link" href="#main-content">Skip to content</a>
