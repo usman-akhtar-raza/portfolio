@@ -86,11 +86,10 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .hero-actions a:first-child { background: var(--color-ink); color: var(--color-paper); }
 .hero-actions a:hover { transform: translateY(-2px); background: var(--color-signal); border-color: var(--color-signal); color: var(--color-ink); }
 .portrait-assembly { position: relative; justify-self: center; margin: 0; width: 100%; max-width: 28rem; }
-.portrait-index { position: absolute; top: -1.45rem; left: 0; font: 700 .58rem var(--font-mono); letter-spacing: .1em; }
 .portrait-window { --rx: 0deg; --ry: 0deg; --tx: 0px; --ty: 0px; position: relative; height: clamp(26rem, 32vw, 30rem); overflow: hidden; border: 1px solid var(--color-ink); background: var(--color-ink); clip-path: polygon(0 0, 100% 0, 100% 91%, 91% 100%, 0 100%); transform: perspective(1000px) translate3d(var(--tx),var(--ty),0) rotateX(var(--rx)) rotateY(var(--ry)); transition: transform 260ms var(--ease-editorial); }
 .portrait-window::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 70%, rgba(17,23,19,.18)); pointer-events: none; }
 .portrait-window img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; filter: saturate(.8) contrast(1.06); transform: scale(1.025); }
-.portrait-assembly figcaption { display: flex; justify-content: space-between; gap: 1rem; margin-top: .65rem; font: 600 .54rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+.portrait-assembly figcaption { margin-top: .65rem; font: 600 .54rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
 .portrait-stamp { position: absolute; top: 12%; right: -2.5rem; display: grid; place-items: center; width: 5.4rem; height: 5.4rem; border-radius: 50%; background: var(--color-signal); color: var(--color-ink); text-align: center; font: 800 .53rem/1.3 var(--font-mono); letter-spacing: .12em; transform: rotate(8deg); }
 .hero-brief { align-self: end; padding-bottom: 1.6rem; }
 .hero-brief > p:not(.micro-label) { margin: 1rem 0 2rem; font-family: var(--font-serif); font-size: 1.35rem; line-height: 1.12; }
