@@ -71,7 +71,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .availability { display: flex; align-items: center; gap: .55rem; color: var(--color-teal); }
 .availability i { width: .42rem; height: .42rem; border-radius: 50%; background: var(--color-teal); box-shadow: 0 0 0 .3rem rgba(10,98,85,.12); }
 .identity-title { position: relative; z-index: 1; margin: 1.1rem 0 0; font-size: clamp(7rem, 18vw, 18.5rem); font-weight: 900; letter-spacing: -.09em; line-height: .73; text-transform: uppercase; }
-.identity-line { display: block; overflow: hidden; padding: 0 .07em .08em 0; }
+.identity-line { display: block; overflow: hidden; margin-block: -.12em; padding: .12em .07em .12em 0; }
 .identity-line > span { display: block; }
 .identity-line-shift { padding-left: 8.5vw; color: transparent; -webkit-text-stroke: clamp(1px, .13vw, 2px) var(--color-ink); }
 .hero-composition { position: relative; z-index: 3; display: grid; grid-template-columns: minmax(17rem, 1fr) minmax(22rem, 1.05fr) minmax(12rem, .55fr); align-items: end; gap: clamp(2rem, 5vw, 5rem); margin-top: clamp(2rem, 3vw, 3.5rem); }
