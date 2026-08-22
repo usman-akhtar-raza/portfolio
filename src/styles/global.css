@@ -191,19 +191,16 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .interface-chart span:nth-child(1) { height: 36%; animation-delay: -1.2s; }.interface-chart span:nth-child(2) { height: 64%; animation-delay: -.3s; }.interface-chart span:nth-child(3) { height: 48%; animation-delay: -2s; }.interface-chart span:nth-child(4) { height: 82%; animation-delay: -.8s; }.interface-chart span:nth-child(5) { height: 58%; animation-delay: -1.6s; }.interface-chart span:nth-child(6) { height: 94%; animation-delay: -.5s; }
 @media (hover: hover) and (pointer: fine) { .gallery-card-interface:hover .interface-sidebar span { background: var(--color-ink); transform: rotate(135deg); } }
 
-.gallery-mobile { display: grid; place-items: center; background: var(--color-teal); }
-.mobile-orbit { position: absolute; width: 84%; aspect-ratio: 1; border: 1px solid rgba(238,233,218,.45); border-radius: 50%; animation: orbitSpin 12s linear infinite; }
-.mobile-orbit::before, .mobile-orbit::after { content: ""; position: absolute; border: 1px solid rgba(238,233,218,.25); border-radius: 50%; }
-.mobile-orbit::before { inset: 14%; }.mobile-orbit::after { inset: 31%; }
-.mobile-device { position: relative; z-index: 2; width: 44%; aspect-ratio: 9 / 18; padding: 9% 7% 7%; border: 2px solid var(--color-paper); border-radius: 1.7rem; background: var(--color-ink); box-shadow: 1.1rem 1.1rem 0 rgba(17,23,19,.2); transition: transform 500ms var(--ease-editorial); }
-.mobile-speaker { position: absolute; top: 3.5%; left: 38%; width: 24%; height: 1.5%; border-radius: 1rem; background: var(--color-paper); }
-.mobile-status { width: 35%; height: 3%; background: var(--color-signal); }
-.mobile-hero-block { height: 29%; margin-top: 13%; background: var(--color-signal); clip-path: polygon(0 0, 100% 0, 100% 78%, 78% 100%, 0 100%); }
-.mobile-copy-line { width: 100%; height: 3%; margin-top: 9%; background: var(--color-paper); }.mobile-copy-line.short { width: 64%; margin-top: 5%; opacity: .55; }
-.mobile-action { width: 45%; height: 7%; margin-top: 12%; border: 1px solid var(--color-signal); }
-.mobile-dock { position: absolute; right: 7%; bottom: 5%; left: 7%; display: flex; justify-content: space-around; padding-top: 8%; border-top: 1px solid rgba(238,233,218,.3); }.mobile-dock i { width: .65rem; height: .65rem; border: 1px solid var(--color-paper); border-radius: 50%; }
+.gallery-mobile { perspective: 900px; background: var(--color-teal); }
+.gallery-mobile-rotator { --mobile-scale: 1; position: absolute; inset: 0; transform: rotateY(0deg) scale(var(--mobile-scale)); transform-style: preserve-3d; will-change: transform; }
+.gallery-mobile-rotator.is-spinning { animation: mobileFlipOnce 1.8s var(--ease-editorial) both; }
+.gallery-mobile-image { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; backface-visibility: hidden; transition: filter 400ms ease; }
+.gallery-mobile-back { transform: rotateY(180deg); }
 .mobile-index { position: absolute; bottom: 1rem; left: 1rem; color: var(--color-paper); font: 700 .5rem var(--font-mono); letter-spacing: .12em; }
-@media (hover: hover) and (pointer: fine) { .gallery-card-mobile:hover .mobile-device { transform: rotate(-3deg) translateY(-.45rem); } }
+@media (hover: hover) and (pointer: fine) {
+  .gallery-card-mobile:hover .gallery-mobile-rotator { --mobile-scale: 1.025; }
+  .gallery-card-mobile:hover .gallery-mobile-image { filter: saturate(1.06) contrast(1.02); }
+}
 
 .gallery-ai { background: var(--color-ink); color: var(--color-paper); }
 .ai-grid { position: absolute; inset: 0; opacity: .15; background-image: linear-gradient(rgba(238,233,218,.55) 1px, transparent 1px), linear-gradient(90deg, rgba(238,233,218,.55) 1px, transparent 1px); background-size: 2rem 2rem; }
@@ -301,9 +298,9 @@ a, button { -webkit-tap-highlight-color: transparent; }
 @keyframes tickerMove { to { transform: translateX(-50%); } }
 @keyframes mobileLinkEnter { from { opacity: 0; transform: translateY(1rem); } to { opacity: 1; transform: translateY(0); } }
 @keyframes galleryScan { 0% { transform: translateY(-1px); opacity: 0; } 10%,80% { opacity: .8; } 100% { transform: translateY(44rem); opacity: 0; } }
+@keyframes mobileFlipOnce { from { transform: rotateY(0deg) scale(var(--mobile-scale)); } to { transform: rotateY(360deg) scale(var(--mobile-scale)); } }
 @keyframes interfaceBreathe { 0%,100% { transform: scaleX(.78); } 50% { transform: scaleX(1); } }
 @keyframes chartRise { from { transform: scaleY(.58); opacity: .6; } to { transform: scaleY(1); opacity: 1; } }
-@keyframes orbitSpin { to { transform: rotate(360deg); } }
 @keyframes nodePulse { 0%,100% { box-shadow: 0 0 0 0 rgba(255,91,53,0); } 50% { border-color: var(--color-signal); box-shadow: 0 0 0 .55rem rgba(255,91,53,.1); } }
 @keyframes meterSignal { from { transform: scaleY(.55); opacity: .55; } to { transform: scaleY(1); opacity: 1; } }
 
@@ -379,7 +376,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .interface-shell { grid-template-columns: 2.8rem 1fr; }
   .interface-content { padding: 1rem; }
   .interface-metrics i { min-height: 2.5rem; }
-  .mobile-device { width: 46%; }
   .gallery-terminal { grid-template-columns: 1fr; gap: 1rem; padding-top: 3.5rem; }
   .terminal-lines { align-self: start; }
   .terminal-meter { height: 7rem; }
