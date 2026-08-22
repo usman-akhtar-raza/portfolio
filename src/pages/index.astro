@@ -167,8 +167,79 @@ const schema = {
       </div>
     </section>
 
+    <section id="gallery" class="gallery-section" data-section="gallery" aria-labelledby="gallery-title">
+      <div class="gallery-register reveal">
+        <span>03 / Practice gallery</span><span>Five working surfaces</span><span>Scroll to explore</span>
+      </div>
+
+      <header class="gallery-heading reveal">
+        <p class="micro-label">Visual index / Built from the practice</p>
+        <h2 id="gallery-title">Systems in motion.<br /><em>Not decoration.</em></h2>
+        <p>A visual index of the interfaces, mobile workflows, AI application flows, and delivery systems I work across.</p>
+      </header>
+
+      <div class="gallery-grid">
+        <article class="gallery-card gallery-card-interface reveal" style="--stagger: 40ms" data-gallery-card>
+          <div class="gallery-visual gallery-interface" aria-hidden="true">
+            <div class="interface-toolbar"><i></i><i></i><i></i><span>product.surface / 01</span></div>
+            <div class="interface-shell">
+              <div class="interface-sidebar"><span></span><span></span><span></span><span></span></div>
+              <div class="interface-content">
+                <div class="interface-title"></div>
+                <div class="interface-metrics"><i></i><i></i><i></i></div>
+                <div class="interface-chart"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+          <footer><span>01 / Interface systems</span><strong>Clarity across complex product surfaces.</strong></footer>
+        </article>
+
+        <article class="gallery-card gallery-card-mobile reveal" style="--stagger: 90ms" data-gallery-card>
+          <div class="gallery-visual gallery-mobile" aria-hidden="true">
+            <div class="mobile-orbit"></div>
+            <div class="mobile-device">
+              <div class="mobile-speaker"></div><div class="mobile-status"></div>
+              <div class="mobile-hero-block"></div><div class="mobile-copy-line"></div><div class="mobile-copy-line short"></div>
+              <div class="mobile-action"></div><div class="mobile-dock"><i></i><i></i><i></i></div>
+            </div>
+            <span class="mobile-index">GESTURE / STATE / FLOW</span>
+          </div>
+          <footer><span>02 / Mobile workflows</span><strong>Small screens with full product intent.</strong></footer>
+        </article>
+
+        <article class="gallery-card gallery-card-ai reveal" style="--stagger: 140ms" data-gallery-card>
+          <div class="gallery-visual gallery-ai" aria-hidden="true">
+            <div class="ai-grid"></div>
+            <span class="ai-node ai-node-a">INPUT</span><span class="ai-node ai-node-b">MODEL</span><span class="ai-node ai-node-c">TOOL</span><span class="ai-node ai-node-d">OUTPUT</span>
+            <i class="ai-link ai-link-a"></i><i class="ai-link ai-link-b"></i><i class="ai-link ai-link-c"></i>
+            <p>USEFUL AI<br />LIVES INSIDE<br />THE WORKFLOW.</p>
+          </div>
+          <footer><span>03 / AI application flows</span><strong>Models connected to real user capability.</strong></footer>
+        </article>
+
+        <article class="gallery-card gallery-card-portrait reveal" style="--stagger: 190ms" data-gallery-card>
+          <div class="gallery-visual gallery-portrait">
+            <img src="/images/usman-akhtar-studio.png" width="941" height="1672" loading="lazy" alt="Usman Akhtar, software engineer, in a formal studio portrait" />
+            <span>ENGINEER / BUILDER / OWNER</span>
+          </div>
+          <footer><span>04 / The operator</span><strong>One engineer across the whole surface.</strong></footer>
+        </article>
+
+        <article class="gallery-card gallery-card-terminal reveal" style="--stagger: 240ms" data-gallery-card>
+          <div class="gallery-visual gallery-terminal" aria-hidden="true">
+            <div class="terminal-bar"><span>delivery.log</span><span>● LIVE</span></div>
+            <div class="terminal-lines">
+              <p><span>01</span> $ verify product surface</p><p><span>02</span> ✓ interface compiled</p><p><span>03</span> ✓ services connected</p><p><span>04</span> ✓ data path observed</p><p><span>05</span> <b>ready to ship_</b></p>
+            </div>
+            <div class="terminal-meter"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+          </div>
+          <footer><span>05 / Delivery systems</span><strong>Quiet infrastructure, repeatable releases.</strong></footer>
+        </article>
+      </div>
+    </section>
+
     <section id="experience" class="paper-section timeline-section" data-section="experience">
-      <div class="section-rail reveal"><span>03</span><p>Timeline</p></div>
+      <div class="section-rail reveal"><span>04</span><p>Timeline</p></div>
       <div class="section-body timeline-layout">
         <header class="timeline-intro reveal">
           <p class="micro-label">Experience / Education</p>
@@ -211,7 +282,7 @@ const schema = {
     </section>
 
     <section id="contact" class="contact-section" data-section="contact">
-      <div class="contact-register reveal"><span>04 / Contact</span><span>Lahore · Pakistan</span><span>Remote · Worldwide</span></div>
+      <div class="contact-register reveal"><span>05 / Contact</span><span>Lahore · Pakistan</span><span>Remote · Worldwide</span></div>
       <div class="contact-title reveal"><p>LET’S BUILD</p><p>SOMETHING</p><p><em>USEFUL.</em></p></div>
       <div class="contact-lower reveal">
         <p>I’m open to remote full-time, freelance, project-based, and long-term collaboration where thoughtful engineering matters.</p>
@@ -234,6 +305,7 @@ const schema = {
     const progressBar = document.querySelector<HTMLElement>('[data-scroll-progress]');
     const portrait = document.querySelector<HTMLElement>('[data-portrait]');
     const portraitFrame = document.querySelector<HTMLElement>('[data-portrait-frame]');
+    const galleryCards = document.querySelectorAll<HTMLElement>('[data-gallery-card]');
 
     if (reducedMotion || !('IntersectionObserver' in window)) {
       revealElements.forEach((element) => element.classList.add('is-visible'));
@@ -272,6 +344,20 @@ const schema = {
         portrait?.addEventListener('pointerleave', () => {
           ['--rx', '--ry'].forEach((property) => portraitFrame?.style.setProperty(property, '0deg'));
           ['--tx', '--ty'].forEach((property) => portraitFrame?.style.setProperty(property, '0px'));
+        });
+
+        galleryCards.forEach((card) => {
+          card.addEventListener('pointermove', (event) => {
+            const bounds = card.getBoundingClientRect();
+            const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+            const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+            card.style.setProperty('--gallery-rx', `${y * -1.2}deg`);
+            card.style.setProperty('--gallery-ry', `${x * 1.2}deg`);
+          });
+          card.addEventListener('pointerleave', () => {
+            card.style.setProperty('--gallery-rx', '0deg');
+            card.style.setProperty('--gallery-ry', '0deg');
+          });
         });
       }
     }
