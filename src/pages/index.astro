@@ -196,11 +196,9 @@ const schema = {
 
         <article class="gallery-card gallery-card-mobile reveal" style="--stagger: 90ms" data-gallery-card>
           <div class="gallery-visual gallery-mobile" aria-hidden="true">
-            <div class="mobile-orbit"></div>
-            <div class="mobile-device">
-              <div class="mobile-speaker"></div><div class="mobile-status"></div>
-              <div class="mobile-hero-block"></div><div class="mobile-copy-line"></div><div class="mobile-copy-line short"></div>
-              <div class="mobile-action"></div><div class="mobile-dock"><i></i><i></i><i></i></div>
+            <div class="gallery-mobile-rotator" data-mobile-rotation>
+              <img class="gallery-mobile-image gallery-mobile-front" src="/images/mobile-workflows-iphone17.png" alt="" loading="lazy" decoding="async" />
+              <img class="gallery-mobile-image gallery-mobile-back" src="/images/mobile-workflows-iphone17-back.png" alt="" loading="lazy" decoding="async" />
             </div>
             <span class="mobile-index">GESTURE / STATE / FLOW</span>
           </div>
@@ -306,6 +304,7 @@ const schema = {
     const portrait = document.querySelector<HTMLElement>('[data-portrait]');
     const portraitFrame = document.querySelector<HTMLElement>('[data-portrait-frame]');
     const galleryCards = document.querySelectorAll<HTMLElement>('[data-gallery-card]');
+    const mobileRotator = document.querySelector<HTMLElement>('[data-mobile-rotation]');
 
     if (reducedMotion || !('IntersectionObserver' in window)) {
       revealElements.forEach((element) => element.classList.add('is-visible'));
@@ -318,6 +317,15 @@ const schema = {
         });
       }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
       revealElements.forEach((element) => revealObserver.observe(element));
+
+      if (mobileRotator) {
+        const mobileSpinObserver = new IntersectionObserver((entries, observer) => {
+          if (!entries.some((entry) => entry.isIntersecting)) return;
+          mobileRotator.classList.add('is-spinning');
+          observer.unobserve(mobileRotator);
+        }, { rootMargin: '0px 0px -15% 0px', threshold: 0.3 });
+        mobileSpinObserver.observe(mobileRotator);
+      }
 
       let ticking = false;
       const updateProgress = () => {
