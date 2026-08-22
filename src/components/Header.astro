@@ -15,12 +15,6 @@ const links = [
     <strong>Usman Akhtar</strong>
   </a>
 
-  <p class="topbar-edition">Portfolio / Vol. 02 <span>— 2026</span></p>
-
-  <p class="topbar-clock" aria-label="Current time in Lahore">
-    PKT <time data-lahore-time>--:--</time>
-  </p>
-
   <nav class="topbar-nav" aria-label="Primary navigation">
     {links.map((link) => <a href={link.href} data-nav-link>{link.label}</a>)}
   </nav>
@@ -51,17 +45,6 @@ const links = [
   const header = document.querySelector('[data-header]');
   const menuButton = document.querySelector<HTMLButtonElement>('[data-menu-button]');
   const mobileNav = document.querySelector<HTMLElement>('[data-mobile-nav]');
-  const lahoreTime = document.querySelector<HTMLTimeElement>('[data-lahore-time]');
-
-  const updateLahoreTime = () => {
-    if (!lahoreTime) return;
-    lahoreTime.textContent = new Intl.DateTimeFormat('en-GB', {
-      timeZone: 'Asia/Karachi',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false,
-    }).format(new Date());
-  };
 
   const closeMenu = () => {
     header?.classList.remove('menu-active');
@@ -69,9 +52,6 @@ const links = [
     menuButton?.setAttribute('aria-label', 'Open navigation');
     document.body.classList.remove('menu-open');
   };
-
-  updateLahoreTime();
-  window.setInterval(updateLahoreTime, 30_000);
 
   menuButton?.addEventListener('click', () => {
     const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
