@@ -51,18 +51,51 @@ const toolkit = [
   { label: 'Delivery', items: ['AWS EC2', 'AWS S3', 'Git', 'CI/CD', 'TypeScript'] },
 ];
 
+const siteURL = 'https://www.usmandevhub.top/';
+const personID = `${siteURL}#usman-akhtar`;
 const schema = {
-  '@context': 'https://schema.org', '@type': 'Person', name: 'Usman Akhtar',
-  jobTitle: 'Software Engineer | Full-Stack & AI Application Engineer', email: 'mailto:akhtarusman716@gmail.com',
-  address: { '@type': 'PostalAddress', addressLocality: 'Lahore', addressRegion: 'Punjab', addressCountry: 'PK' },
-  sameAs: ['https://www.linkedin.com/in/usman-akhtar-dev'],
-  knowsAbout: ['Full-stack development', 'React', 'Next.js', 'NestJS', 'React Native', 'RAG', 'AI agents', 'AWS'],
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${siteURL}#website`,
+      url: siteURL,
+      name: 'Usman Akhtar',
+      description: 'Portfolio of Usman Akhtar, a Full-Stack and AI Application Engineer based in Lahore, Pakistan.',
+      inLanguage: 'en',
+      author: { '@id': personID },
+    },
+    {
+      '@type': 'ProfilePage',
+      '@id': `${siteURL}#profile-page`,
+      url: siteURL,
+      name: 'Usman Akhtar — Full-Stack & AI Application Engineer',
+      dateModified: '2026-08-24',
+      mainEntity: { '@id': personID },
+      isPartOf: { '@id': `${siteURL}#website` },
+    },
+    {
+      '@type': 'Person',
+      '@id': personID,
+      name: 'Usman Akhtar',
+      url: siteURL,
+      image: `${siteURL}images/usman-akhtar-studio.png`,
+      jobTitle: 'Full-Stack & AI Application Engineer',
+      description: 'Software engineer building production-ready web, mobile, backend, and AI-powered applications.',
+      email: 'mailto:akhtarusman716@gmail.com',
+      address: { '@type': 'PostalAddress', addressLocality: 'Lahore', addressRegion: 'Punjab', addressCountry: 'PK' },
+      alumniOf: { '@type': 'CollegeOrUniversity', name: 'The Superior University' },
+      worksFor: { '@type': 'Organization', name: 'rulrr.com' },
+      sameAs: ['https://www.linkedin.com/in/usman-akhtar-dev'],
+      knowsAbout: ['Full-stack development', 'React', 'Next.js', 'NestJS', 'React Native', 'RAG', 'AI agents', 'AWS'],
+    },
+  ],
 };
 ---
 
 <Layout
-  title="Usman Akhtar — Full-Stack & AI Application Engineer"
-  description="Portfolio of Usman Akhtar, a Lahore-based software engineer building production-ready web, mobile, and AI-powered applications."
+  title="Usman Akhtar | Full-Stack & AI Application Engineer"
+  description="Usman Akhtar is a Full-Stack and AI Application Engineer in Lahore, building production-ready web, mobile, backend, and AI-powered products."
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
   <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
@@ -83,7 +116,7 @@ const schema = {
       <div class="hero-composition">
         <div class="hero-intro hero-enter">
           <p class="micro-label">Field note / 001</p>
-          <p>I engineer useful software across the full product surface, from the first interaction to the system behind it.</p>
+          <p>I’m Usman Akhtar, a full-stack and AI application engineer. I build useful software across the full product surface, from the first interaction to the system behind it.</p>
           <div class="hero-actions">
             <a href="#work">View selected evidence <Icon name="arrow" class="size-5" /></a>
             <a href="/Usman_Akhtar_Full_Stack_AI_Engineer_CV.pdf" download><Icon name="download" class="size-4" /> Resume PDF</a>
