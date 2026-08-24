@@ -320,6 +320,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .projects-hero .subpage-register { border-color: rgba(238,233,218,.22); color: #9da59f; }
 .projects-hero .micro-label { color: var(--color-signal); }
 .projects-hero .confidential-note { border-color: rgba(238,233,218,.22); color: #9da59f; }
+.projects-hero .subpage-title { overflow: visible; font-size: clamp(4.8rem, 10vw, 11.5rem); line-height: .78; letter-spacing: -.075em; }
+.projects-hero .subpage-title em { padding-left: clamp(0rem, 5vw, 4rem); }
 .project-index { padding: var(--section-y) var(--page-x); background: #d9d2c2; }
 .project-index-card { border-top: 1px solid var(--color-ink); }
 .project-index-card:last-child { border-bottom: 1px solid var(--color-ink); }
@@ -562,6 +564,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .subpage-hero-grid { display: block; min-height: auto; padding-top: 5rem; }
   .subpage-title { font-size: clamp(4.8rem, 23vw, 8rem); }
   .subpage-title em { padding-left: 0; }
+  .projects-hero .subpage-title { font-size: clamp(4rem, 19vw, 7rem); line-height: .8; }
+  .projects-hero .subpage-title em { padding-left: 0; }
   .subpage-intro { margin-top: 4rem; }
   .story-copy, .section-heading-row, .about-ledger { grid-template-columns: 1fr; }
   .story-copy { gap: 2.5rem; }
