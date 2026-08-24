@@ -1,23 +1,24 @@
 ---
 import Icon from './Icon.astro';
 
+const pathname = Astro.url.pathname;
 const links = [
-  { href: '#about', label: 'Profile', index: '01' },
-  { href: '#work', label: 'Work', index: '02' },
-  { href: '#gallery', label: 'Gallery', index: '03' },
-  { href: '#experience', label: 'Timeline', index: '04' },
-  { href: '#contact', label: 'Contact', index: '05' },
+  { href: '/', label: 'Home', index: '01', active: pathname === '/' },
+  { href: '/about', label: 'About', index: '02', active: pathname === '/about' },
+  { href: '/projects', label: 'Projects', index: '03', active: pathname.startsWith('/projects') },
+  { href: '/#experience', label: 'Experience', index: '04', active: false },
+  { href: '/#contact', label: 'Contact', index: '05', active: false },
 ];
 ---
 
 <header class="topbar" data-header>
-  <a class="topbar-mark" href="#top" aria-label="Usman Akhtar, back to top">
+  <a class="topbar-mark" href="/" aria-label="Usman Akhtar, home">
     <span>UA</span>
     <strong>Usman Akhtar</strong>
   </a>
 
   <nav class="topbar-nav" aria-label="Primary navigation">
-    {links.map((link) => <a href={link.href} data-nav-link>{link.label}</a>)}
+    {links.map((link) => <a href={link.href} class:list={{ 'is-active': link.active }} data-nav-link>{link.label}</a>)}
   </nav>
 
   <a class="topbar-talk" href="mailto:akhtarusman716@gmail.com">

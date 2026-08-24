@@ -1,0 +1,86 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Icon from '../../components/Icon.astro';
+import PageMotion from '../../components/PageMotion.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  url: 'https://www.usmandevhub.top/projects/rulrr-2-frontend-engineering',
+  name: 'Rulrr 2.0 — Frontend Engineering Case Study',
+  description: 'A sanitized case study of Usman Akhtar’s frontend engineering work on Rulrr 2.0.',
+  author: { '@type': 'Person', '@id': 'https://www.usmandevhub.top/#usman-akhtar', name: 'Usman Akhtar' },
+  keywords: ['Frontend engineering', 'Responsive UI', 'Component architecture', 'Product engineering'],
+};
+---
+
+<Layout
+  title="Rulrr 2.0 Frontend Engineering Case Study | Usman Akhtar"
+  description="A confidentiality-safe case study of Usman Akhtar's work as a Frontend Engineer on Rulrr 2.0, covering component architecture, responsive product states, and team delivery."
+  socialImage="/images/rulrr-project-showcase.webp"
+  socialImageAlt="Conceptual Rulrr analytics dashboard representing frontend engineering work"
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
+  <Header />
+
+  <main id="main-content" class="page-main case-main">
+    <section class="case-hero" aria-labelledby="case-title">
+      <a class="case-back hero-enter" href="/projects">← Project index</a>
+      <div class="case-kicker hero-enter"><span>Case study / 001</span><span>Rulrr</span><span>Frontend engineering</span></div>
+      <h1 id="case-title" class="case-title"><span>RULRR</span><em>2.0</em></h1>
+      <div class="case-summary hero-enter">
+        <p class="micro-label">Role / Frontend Engineer</p>
+        <p>A confidentiality-safe account of building a coherent product frontend without exposing Rulrr’s actual interface or private product implementation.</p>
+      </div>
+    </section>
+
+    <section class="case-abstract reveal" aria-label="Conceptual Rulrr dashboard showcase">
+      <div class="case-abstract-label"><span>Conceptual product dashboard</span><span>Portfolio visualization—not the actual Rulrr UI</span></div>
+      <div class="case-showcase-media">
+        <img
+          src="/images/rulrr-project-showcase.webp"
+          width="1568"
+          height="1003"
+          alt="Conceptual Rulrr dashboard with performance line, bar and donut charts alongside content-generation tools"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </section>
+
+    <section class="case-story-grid">
+      <aside class="case-facts reveal">
+        <p class="micro-label">Project facts</p>
+        <dl>
+          <div><dt>Product</dt><dd>Rulrr 2.0</dd></div>
+          <div><dt>Role</dt><dd>Frontend Engineer</dd></div>
+          <div><dt>Mode</dt><dd>Remote collaboration</dd></div>
+          <div><dt>Focus</dt><dd>Product frontend</dd></div>
+        </dl>
+      </aside>
+      <div class="case-narrative">
+        <article class="reveal"><p class="micro-label">Context</p><h2>A product surface that had to stay clear as the system grew.</h2><p>My frontend role centered on turning product requirements into dependable user-facing flows. The work required careful handling of interface states, reusable patterns, responsive behavior, and the details that make a product feel coherent across repeated use.</p></article>
+        <article class="reveal"><p class="micro-label">Contribution</p><h2>From requirement to maintainable interaction.</h2><p>I worked across the frontend lifecycle: understanding the intended behavior, structuring reusable pieces, implementing responsive layouts, connecting application state, and refining interaction feedback with the wider team.</p></article>
+        <article class="reveal"><p class="micro-label">Engineering focus</p><h2>Consistency without making the product rigid.</h2><ul class="case-list"><li>Reusable component patterns for shared product behavior</li><li>Clear loading, empty, success, and error states</li><li>Responsive layouts across practical screen sizes</li><li>Maintainable frontend structure for continued iteration</li><li>Cross-functional delivery with product and engineering teammates</li></ul></article>
+        <article class="reveal"><p class="micro-label">Outcome</p><h2>A stronger base for ongoing product delivery.</h2><p>The result was not a single showcase screen. It was a more consistent frontend foundation that supported new product work, clearer interaction states, and smoother collaboration as Rulrr 2.0 continued to evolve.</p></article>
+      </div>
+    </section>
+
+    <section class="disclosure-panel reveal">
+      <p class="micro-label">Responsible disclosure</p>
+      <h2>What this case study intentionally leaves out.</h2>
+      <p>No real Rulrr UI, screen recreation, customer data, internal route, private component, unreleased capability, or confidential performance metric appears on this page. The visual above is an original abstract illustration used only to communicate the nature of frontend work.</p>
+    </section>
+
+    <nav class="case-next" aria-label="Project navigation">
+      <span>Next case study</span>
+      <a href="/projects/rulrr-content-generation-system">Rulrr Content Generation System <Icon name="arrow" class="size-7" /></a>
+    </nav>
+  </main>
+
+  <SiteFooter />
+  <PageMotion />
+</Layout>

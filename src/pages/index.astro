@@ -11,19 +11,22 @@ const capabilities = [
 
 const outcomes = [
   {
-    index: '001', eyebrow: 'AI / Product integration', title: 'Generation features embedded where users already work.',
-    description: 'Connected OpenAI services to an existing application so image and written-content generation became part of the product workflow—not a disconnected demo.',
-    evidence: ['OpenAI API integration', 'Product-facing workflow', 'Production delivery'], stack: 'OPENAI API · NESTJS · REACT',
+    index: '001', eyebrow: 'Rulrr 2.0 / Frontend engineering', title: 'A coherent product surface built for continued iteration.',
+    description: 'Turned product requirements into responsive, reusable interface patterns while keeping states, behavior, and team delivery clear.',
+    evidence: ['Component architecture', 'Responsive product states', 'Frontend delivery'], stack: 'FRONTEND · PRODUCT UI · TEAM DELIVERY',
+    href: '/projects/rulrr-2-frontend-engineering',
   },
   {
-    index: '002', eyebrow: 'Full-stack / Performance', title: 'Features carried from interface to database.',
-    description: 'Shipped work across React and Next.js interfaces, NestJS services, and MongoDB schemas while improving query behavior and API response times.',
-    evidence: ['Frontend to backend ownership', 'Schema design', 'Query optimization'], stack: 'NEXT.JS · NESTJS · MONGODB',
+    index: '002', eyebrow: 'Rulrr / Full-stack engineering', title: 'Content generation carried across the complete workflow.',
+    description: 'Built across the product UI, backend orchestration, persistence, and delivery so generation behaved like a reliable product capability.',
+    evidence: ['Full-stack workflow', 'AI service integration', 'Production delivery'], stack: 'FULL-STACK · AI INTEGRATION · SYSTEM DESIGN',
+    href: '/projects/rulrr-content-generation-system',
   },
   {
     index: '003', eyebrow: 'Cloud / Delivery', title: 'Infrastructure that supports the product quietly.',
     description: 'Implemented secure S3 file workflows, supported backend deployment on EC2, and worked with Git reviews and CI/CD for repeatable releases.',
     evidence: ['Secure file uploads', 'Cloud deployment', 'Release workflow'], stack: 'AWS S3 · AWS EC2 · CI/CD',
+    href: undefined,
   },
 ];
 
@@ -193,7 +196,11 @@ const schema = {
               <div class="work-evidence">
                 <p class="micro-label">Evidence</p><ul>{item.evidence.map((evidence) => <li>{evidence}</li>)}</ul><span>{item.stack}</span>
               </div>
-              <div class="work-arrow" aria-hidden="true"><Icon name="arrow" class="size-7" /></div>
+              {item.href ? (
+                <a class="work-arrow" href={item.href} aria-label={`Read ${item.title} case study`}><Icon name="arrow" class="size-7" /></a>
+              ) : (
+                <div class="work-arrow" aria-hidden="true"><Icon name="arrow" class="size-7" /></div>
+              )}
             </article>
           ))}
         </div>

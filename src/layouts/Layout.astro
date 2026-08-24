@@ -4,11 +4,19 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description: string;
+  socialImage?: string;
+  socialImageAlt?: string;
 }
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description,
+  socialImage = '/images/usman-akhtar-studio.png',
+  socialImageAlt = 'Usman Akhtar, Full-Stack and AI Application Engineer',
+} = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
-const socialImageURL = new URL('/images/usman-akhtar-studio.png', canonicalURL);
+const socialImageURL = new URL(socialImage, canonicalURL);
+const shouldPreloadSocialImage = Astro.url.pathname === '/';
 ---
 
 <!doctype html>
@@ -27,7 +35,7 @@ const socialImageURL = new URL('/images/usman-akhtar-studio.png', canonicalURL);
     <link rel="canonical" href={canonicalURL} />
     <link rel="alternate" hreflang="en" href={canonicalURL} />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="preload" as="image" href="/images/usman-akhtar-studio.png" />
+    {shouldPreloadSocialImage && <link rel="preload" as="image" href="/images/usman-akhtar-studio.png" />}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Usman Akhtar" />
     <meta property="og:locale" content="en_US" />
@@ -35,12 +43,12 @@ const socialImageURL = new URL('/images/usman-akhtar-studio.png', canonicalURL);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={socialImageURL} />
-    <meta property="og:image:alt" content="Usman Akhtar, Full-Stack and AI Application Engineer" />
+    <meta property="og:image:alt" content={socialImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImageURL} />
-    <meta name="twitter:image:alt" content="Usman Akhtar, Full-Stack and AI Application Engineer" />
+    <meta name="twitter:image:alt" content={socialImageAlt} />
     <title>{title}</title>
     <script is:inline>
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
