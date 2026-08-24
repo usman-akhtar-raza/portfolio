@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Icon from '../components/Icon.astro';
+import PageMotion from '../components/PageMotion.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const principles = [
+  ['01', 'Think in product systems', 'I connect interface decisions to services, data, delivery, and the user outcome they are meant to support.'],
+  ['02', 'Make complexity legible', 'Clear component boundaries, explicit states, and maintainable flows help teams move without losing product quality.'],
+  ['03', 'Ship with responsibility', 'I treat accessibility, performance, reliability, and collaboration as part of the feature—not work that comes later.'],
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  '@id': 'https://www.usmandevhub.top/about#profile-page',
+  url: 'https://www.usmandevhub.top/about',
+  name: 'About Usman Akhtar — Full-Stack & AI Application Engineer',
+  dateModified: '2026-08-24',
+  mainEntity: {
+    '@type': 'Person',
+    '@id': 'https://www.usmandevhub.top/#usman-akhtar',
+    name: 'Usman Akhtar',
+    jobTitle: 'Full-Stack & AI Application Engineer',
+    image: 'https://www.usmandevhub.top/images/usman-akhtar-studio.png',
+    address: { '@type': 'PostalAddress', addressLocality: 'Lahore', addressCountry: 'PK' },
+    alumniOf: { '@type': 'CollegeOrUniversity', name: 'The Superior University' },
+    worksFor: { '@type': 'Organization', name: 'Rulrr' },
+    sameAs: ['https://www.linkedin.com/in/usman-akhtar-dev'],
+  },
+};
+---
+
+<Layout
+  title="About Usman Akhtar | Full-Stack Engineer in Lahore"
+  description="Learn about Usman Akhtar, a Lahore-based Full-Stack and AI Application Engineer working across frontend products, backend systems, mobile applications, and practical AI features."
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
+  <Header />
+
+  <main id="main-content" class="page-main">
+    <section class="subpage-hero about-hero" aria-labelledby="about-title">
+      <div class="subpage-register hero-enter"><span>Profile / 01</span><span>Lahore, Pakistan</span><span>Updated 2026</span></div>
+      <div class="subpage-hero-grid">
+        <div>
+          <p class="micro-label hero-enter">Engineer / Builder / Product thinker</p>
+          <h1 id="about-title" class="subpage-title"><span>ABOUT</span><em>USMAN.</em></h1>
+        </div>
+        <div class="subpage-intro hero-enter">
+          <p>I build production software across the full product surface—from the interface a person uses to the systems, data, and delivery behind it.</p>
+          <a href="/projects">Explore selected projects <Icon name="arrow" class="size-5" /></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="story-section">
+      <div class="story-lead reveal">
+        <p class="micro-label">The short version</p>
+        <h2>Product craft with<br /><em>technical range.</em></h2>
+      </div>
+      <div class="story-copy reveal">
+        <p class="story-drop">I’m Usman Akhtar, a software engineer focused on useful products—not isolated screens or technology for its own sake.</p>
+        <div>
+          <p>My work spans responsive web interfaces, component systems, backend services, database design, mobile workflows, cloud delivery, and AI-powered product capabilities.</p>
+          <p>I started in frontend engineering, learning how product decisions become real interactions. That foundation expanded into full-stack ownership: carrying features through APIs, persistence, reliability, and production delivery.</p>
+          <p>I work remotely from Lahore and value teams that care about clear thinking, honest collaboration, and software that can be maintained after it ships.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="principles-section" aria-labelledby="principles-title">
+      <header class="section-heading-row reveal">
+        <p class="micro-label">Working principles</p>
+        <h2 id="principles-title">How I approach the work.</h2>
+      </header>
+      <div class="about-principles">
+        {principles.map(([number, title, description], index) => (
+          <article class="about-principle reveal" style={`--stagger: ${index * 65}ms`}>
+            <span>{number}</span><h3>{title}</h3><p>{description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="about-ledger" aria-label="Experience and education">
+      <div class="about-ledger-column reveal">
+        <p class="micro-label">Current practice</p>
+        <h2>Frontend roots.<br />Full-stack ownership.</h2>
+        <p>At Rulrr, my role progressed from Frontend Engineer to Full-Stack Engineer. The work developed from product-facing interface engineering into ownership across frontend, backend, and AI-enabled workflows.</p>
+        <a href="/projects">Read the sanitized Rulrr case studies <Icon name="arrow" class="size-5" /></a>
+      </div>
+      <div class="credential-list reveal">
+        <p class="micro-label">Education</p>
+        <article><span>2022—2026</span><div><h3>Bachelor’s in Computer Software Engineering</h3><p>The Superior University</p></div></article>
+        <article><span>2020—2022</span><div><h3>Higher Secondary School Certificate</h3><p>Govt. Shah Hussain Associate College</p></div></article>
+        <article><span>2018—2020</span><div><h3>Secondary School Certificate</h3><p>Academy for Academic Excellence</p></div></article>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+  <PageMotion />
+</Layout>

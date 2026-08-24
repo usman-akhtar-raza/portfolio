@@ -1,0 +1,24 @@
+---
+import Icon from './Icon.astro';
+---
+
+<footer class="site-footer">
+  <div>
+    <p class="micro-label">Available for thoughtful product work</p>
+    <a href="mailto:akhtarusman716@gmail.com">Start a conversation <Icon name="arrow" class="size-6" /></a>
+  </div>
+  <div class="site-footer-meta">
+    <p>© <span data-year>2026</span> Usman Akhtar</p>
+    <nav aria-label="Footer navigation">
+      <a href="/about">About</a>
+      <a href="/projects">Projects</a>
+      <a href="https://www.linkedin.com/in/usman-akhtar-dev" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      <a href="/Usman_Akhtar_Full_Stack_AI_Engineer_CV.pdf" download>Resume ↓</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  const year = document.querySelector<HTMLElement>('[data-year]');
+  if (year) year.textContent = String(new Date().getFullYear());
+</script>

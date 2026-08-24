@@ -1,0 +1,86 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Icon from '../../components/Icon.astro';
+import PageMotion from '../../components/PageMotion.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  url: 'https://www.usmandevhub.top/projects/rulrr-content-generation-system',
+  name: 'Rulrr Content Generation System — Full-Stack Case Study',
+  description: 'A sanitized case study of Usman Akhtar’s full-stack engineering work on a content generation system at Rulrr.',
+  author: { '@type': 'Person', '@id': 'https://www.usmandevhub.top/#usman-akhtar', name: 'Usman Akhtar' },
+  keywords: ['Full-stack engineering', 'AI integration', 'Backend orchestration', 'Content generation system'],
+};
+---
+
+<Layout
+  title="Rulrr Content Generation System Case Study | Usman Akhtar"
+  description="A confidentiality-safe full-stack case study covering Usman Akhtar's work on Rulrr's content generation system across product UI, backend orchestration, persistence, and reliable delivery."
+  socialImage="/images/rulrr-content-generation-mobile-showcase.webp"
+  socialImageAlt="Four conceptual Rulrr mobile app screens showing the content generation journey from brief to saved content"
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
+  <Header />
+
+  <main id="main-content" class="page-main case-main case-main-ai">
+    <section class="case-hero" aria-labelledby="case-title">
+      <a class="case-back hero-enter" href="/projects">← Project index</a>
+      <div class="case-kicker hero-enter"><span>Case study / 002</span><span>Rulrr</span><span>Full-stack engineering</span></div>
+      <h1 id="case-title" class="case-title case-title-long"><span>CONTENT</span><em>GENERATION.</em></h1>
+      <div class="case-summary hero-enter">
+        <p class="micro-label">Role / Full-Stack Engineer</p>
+        <p>An AI-enabled product workflow carried across the user experience, backend coordination, persistence, and production delivery—described without disclosing Rulrr’s private system.</p>
+      </div>
+    </section>
+
+    <section class="case-abstract case-abstract-ai reveal" aria-label="Conceptual Rulrr content generation system showcase">
+      <div class="case-abstract-label"><span>Conceptual content generation studio</span><span>Portfolio visualization—not the actual Rulrr UI</span></div>
+      <div class="case-showcase-media">
+        <img
+          src="/images/rulrr-content-generation-mobile-showcase.webp"
+          width="1536"
+          height="1024"
+          alt="Four conceptual Rulrr mobile app screens showing a campaign brief, generation setup, generated content preview, and asset history"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </section>
+
+    <section class="case-story-grid">
+      <aside class="case-facts reveal">
+        <p class="micro-label">Project facts</p>
+        <dl>
+          <div><dt>Product</dt><dd>Rulrr</dd></div>
+          <div><dt>Role</dt><dd>Full-Stack Engineer</dd></div>
+          <div><dt>System</dt><dd>Content generation</dd></div>
+          <div><dt>Scope</dt><dd>Interface to delivery</dd></div>
+        </dl>
+      </aside>
+      <div class="case-narrative">
+        <article class="reveal"><p class="micro-label">Context</p><h2>Generation needed to behave like a product capability.</h2><p>The challenge was not simply calling an AI service. The workflow had to fit naturally into an existing product, carry user intent through the system, manage asynchronous states, and return useful output in a way the interface could explain.</p></article>
+        <article class="reveal"><p class="micro-label">Contribution</p><h2>Ownership across both sides of the request.</h2><p>As a Full-Stack Engineer, I worked across the product surface and the service layer: shaping the user-facing flow, coordinating backend generation work, handling state and persistence, and supporting the path from request to delivered result.</p></article>
+        <article class="reveal"><p class="micro-label">System thinking</p><h2>A clear lifecycle for an uncertain operation.</h2><ul class="case-list"><li>Input handling and validation before generation begins</li><li>Explicit progress, success, retry, and failure behavior</li><li>Backend orchestration around the generation lifecycle</li><li>Persistence and retrieval of generated results</li><li>Product-safe error handling and operational visibility</li></ul></article>
+        <article class="reveal"><p class="micro-label">Outcome</p><h2>AI embedded into the workflow, not attached as a demo.</h2><p>The system turned generation into a usable product capability with a defined lifecycle across frontend and backend. It gave users a clearer experience while giving the engineering team a more maintainable path for operating and evolving the feature.</p></article>
+      </div>
+    </section>
+
+    <section class="disclosure-panel reveal">
+      <p class="micro-label">Responsible disclosure</p>
+      <h2>Public proof without exposing private implementation.</h2>
+      <p>This page does not disclose actual prompts, model configuration, private endpoints, database structures, customer content, product screenshots, internal workflows, unreleased capabilities, or confidential performance figures. The showcase is an original conceptual visualization—not an actual Rulrr screen or architecture document.</p>
+    </section>
+
+    <nav class="case-next" aria-label="Project navigation">
+      <span>Return to</span>
+      <a href="/projects">All selected projects <Icon name="arrow" class="size-7" /></a>
+    </nav>
+  </main>
+
+  <SiteFooter />
+  <PageMotion />
+</Layout>

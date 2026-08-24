@@ -1,0 +1,119 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Icon from '../../components/Icon.astro';
+import PageMotion from '../../components/PageMotion.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+const projects = [
+  {
+    index: '001',
+    href: '/projects/rulrr-2-frontend-engineering',
+    role: 'Frontend Engineer',
+    title: 'Rulrr 2.0',
+    statement: 'A product-facing frontend built around clear states, reusable patterns, and responsive behavior.',
+    focus: ['Frontend architecture', 'Responsive product UI', 'Component systems', 'Team delivery'],
+    visual: 'showcase',
+  },
+  {
+    index: '002',
+    href: '/projects/rulrr-content-generation-system',
+    role: 'Full-Stack Engineer',
+    title: 'Rulrr Content Generation System',
+    statement: 'An AI-enabled workflow carried across the interface, service layer, persistence, and production delivery.',
+    focus: ['Full-stack workflow', 'AI integration', 'Backend orchestration', 'Reliable delivery'],
+    visual: 'content-showcase',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  url: 'https://www.usmandevhub.top/projects',
+  name: 'Software Engineering Projects — Usman Akhtar',
+  description: 'Selected sanitized software engineering case studies by Usman Akhtar.',
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: projects.map((project, index) => ({
+      '@type': 'ListItem', position: index + 1, name: project.title,
+      url: `https://www.usmandevhub.top${project.href}`,
+    })),
+  },
+};
+---
+
+<Layout
+  title="Software Engineering Projects | Usman Akhtar"
+  description="Explore sanitized case studies of Usman Akhtar's frontend and full-stack engineering work on Rulrr 2.0 and an AI-powered content generation system."
+  socialImage="/images/rulrr-2-mobile-showcase.webp"
+  socialImageAlt="Four conceptual Rulrr mobile app screens showing overview, analytics, campaigns, and insights"
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
+  <Header />
+
+  <main id="main-content" class="page-main projects-main">
+    <section class="subpage-hero projects-hero" aria-labelledby="projects-title">
+      <div class="subpage-register hero-enter"><span>Selected work / 02</span><span>Sanitized case studies</span><span>2024—Now</span></div>
+      <div class="subpage-hero-grid">
+        <div>
+          <p class="micro-label hero-enter">Real work / Responsible disclosure</p>
+          <h1 id="projects-title" class="subpage-title"><span>PROJECT</span><em>INDEX.</em></h1>
+        </div>
+        <div class="subpage-intro hero-enter">
+          <p>Two views of product engineering at Rulrr: first through the frontend surface, then across a full-stack AI-enabled system.</p>
+          <p class="confidential-note">No proprietary interface, client data, internal prompt, private API, or confidential metric is shown.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-index" aria-label="Selected project case studies">
+      {projects.map((project, index) => (
+        <article class="project-index-card reveal" style={`--stagger: ${index * 75}ms`}>
+          <a href={project.href} aria-label={`Read ${project.title} case study`}>
+            <div class={`abstract-project-visual abstract-project-visual-${project.visual}`} aria-hidden="true">
+              <div class="abstract-visual-label">Conceptual product view / not the actual Rulrr UI</div>
+              {project.visual === 'showcase' ? (
+                <img
+                  class="project-showcase-image"
+                  src="/images/rulrr-2-mobile-showcase.webp"
+                  width="1568"
+                  height="1003"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : project.visual === 'content-showcase' ? (
+                <img
+                  class="project-showcase-image"
+                  src="/images/rulrr-content-generation-mobile-showcase.webp"
+                  width="1536"
+                  height="1024"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : project.visual === 'interface' ? (
+                <div class="abstract-interface">
+                  <span></span><div><i></i><i></i><i></i></div><b></b><b></b>
+                </div>
+              ) : (
+                <div class="abstract-system"><span>INPUT</span><i></i><span>ORCHESTRATE</span><i></i><span>DELIVER</span></div>
+              )}
+            </div>
+            <div class="project-index-copy">
+              <div class="project-index-meta"><span>{project.index}</span><span>{project.role}</span><span class="privacy-badge">Sanitized case study</span></div>
+              <h2>{project.title}</h2>
+              <p>{project.statement}</p>
+              <ul>{project.focus.map((item) => <li>{item}</li>)}</ul>
+              <strong>Read case study <Icon name="arrow" class="size-5" /></strong>
+            </div>
+          </a>
+        </article>
+      ))}
+    </section>
+  </main>
+
+  <SiteFooter />
+  <PageMotion />
+</Layout>
