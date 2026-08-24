@@ -22,7 +22,7 @@ const projects = [
     title: 'Rulrr Content Generation System',
     statement: 'An AI-enabled workflow carried across the interface, service layer, persistence, and production delivery.',
     focus: ['Full-stack workflow', 'AI integration', 'Backend orchestration', 'Reliable delivery'],
-    visual: 'system',
+    visual: 'content-showcase',
   },
 ];
 
@@ -45,8 +45,8 @@ const schema = {
 <Layout
   title="Software Engineering Projects | Usman Akhtar"
   description="Explore sanitized case studies of Usman Akhtar's frontend and full-stack engineering work on Rulrr 2.0 and an AI-powered content generation system."
-  socialImage="/images/rulrr-project-showcase.webp"
-  socialImageAlt="Conceptual Rulrr analytics dashboard with performance charts and an AI content generation panel"
+  socialImage="/images/rulrr-2-mobile-showcase.webp"
+  socialImageAlt="Four conceptual Rulrr mobile app screens showing overview, analytics, campaigns, and insights"
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
   <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
@@ -76,9 +76,19 @@ const schema = {
               {project.visual === 'showcase' ? (
                 <img
                   class="project-showcase-image"
-                  src="/images/rulrr-project-showcase.webp"
+                  src="/images/rulrr-2-mobile-showcase.webp"
                   width="1568"
                   height="1003"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+              ) : project.visual === 'content-showcase' ? (
+                <img
+                  class="project-showcase-image"
+                  src="/images/rulrr-content-generation-mobile-showcase.webp"
+                  width="1536"
+                  height="1024"
                   alt=""
                   loading="lazy"
                   decoding="async"
