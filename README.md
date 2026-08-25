@@ -2,12 +2,12 @@
 
 A modern, accessible portfolio built with Astro and Tailwind CSS.
 
-## Commands
+[View the live portfolio](https://www.usmandevhub.top/)
 
-```bash
-npm install
-npm run dev
-npm run build
-```
+## Local development
 
-The production site is generated in `dist/`.
+- Install dependencies: npm install
+- Start development: npm run dev
+- Build for production: npm run build
+
+The production site is generated in the dist directory.
