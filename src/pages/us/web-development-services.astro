@@ -1,0 +1,58 @@
+---
+import CommercialPage from '../../components/CommercialPage.astro';
+
+const services = [
+  { title: 'Startup product development', description: 'Full-stack execution for US startup teams building a SaaS workflow, internal platform, customer application, or focused product iteration.' },
+  { title: 'React and Next.js applications', description: 'Responsive product interfaces and web-based admin panels connected to real APIs, data, authentication states, and operational behavior.' },
+  { title: 'SaaS MVP delivery', description: 'A deliberate first release that tests the primary user loop while leaving a maintainable technical path for post-launch learning.' },
+  { title: 'AI and RAG integration', description: 'Model capabilities integrated through controlled backend workflows, clear product states, useful persistence, and responsible recovery behavior.' },
+];
+
+const process = [
+  { title: 'Async-first product brief', description: 'Start with the business goal, target user, existing product context, and release pressure in a concise written brief or planning call.' },
+  { title: 'Scope and USD proposal', description: 'Define deliverables, assumptions, milestones, risks, and a proposal presented in USD where appropriate.' },
+  { title: 'Timezone-aware execution', description: 'Use written progress and reviewable increments for daily momentum, with agreed overlap for decisions that benefit from live discussion.' },
+  { title: 'Production-ready close', description: 'Validate responsive flows, service integration, important edge cases, and deployment behavior before handover or the next product cycle.' },
+];
+
+const evidence = [
+  { label: 'Frontend product system', title: 'Rulrr 2.0', description: 'Responsive interface architecture designed around reusable patterns and continued team iteration.', href: '/projects/rulrr-2-frontend-engineering' },
+  { label: 'AI-enabled application', title: 'Lawvera', description: 'A full-stack SaaS web platform exploring RAG inside a clear, accessible product experience.', href: '/projects/lawvera-rag-saas-platform' },
+];
+
+const faqs = [
+  { question: 'How do you collaborate across US time zones?', answer: 'Routine progress is documented asynchronously so work continues without waiting for meetings. We can agree focused overlap for planning, demos, and high-impact product decisions.' },
+  { question: 'Can proposals be provided in USD?', answer: 'Yes. Once requirements are clear, the proposal can be presented in USD with explicit deliverables, milestones, assumptions, and payment stages.' },
+  { question: 'Can you join an existing US product team?', answer: 'Yes. I can take ownership of a defined frontend or full-stack area, integrate with the existing delivery process, and communicate progress through the team’s established tools.' },
+];
+
+const alternates = [
+  { hreflang: 'en-GB', href: 'https://www.usmandevhub.top/uk/web-development-services/' },
+  { hreflang: 'en-US', href: 'https://www.usmandevhub.top/us/web-development-services/' },
+  { hreflang: 'x-default', href: 'https://www.usmandevhub.top/services/web-development/' },
+];
+---
+
+<CommercialPage
+  title="Full-Stack Web Developer for US Startups | Usman Akhtar"
+  description="Remote full-stack web development for US startups, including React and Next.js products, SaaS MVPs, admin panels, backend APIs, and AI applications."
+  path="/us/web-development-services"
+  eyebrow="Remote full-stack development for US startup teams"
+  register={['US services / 01', 'United States', 'Async-first collaboration']}
+  heroLine="SHIP WITH"
+  heroAccent="FULL-STACK OWNERSHIP."
+  intro="I help US startup teams build and improve SaaS products, React and Next.js applications, admin panels, and AI-enabled workflows through clear async collaboration and end-to-end engineering ownership."
+  availability="US timezone overlap available for planned reviews and decisions"
+  scopeLabel="For US product teams"
+  scopeTitle="Momentum without losing engineering clarity."
+  scopeIntro="A remote build works when progress is visible, decisions are written down, and one engineer understands how the interface, services, data, and delivery fit together."
+  {services}
+  {process}
+  {evidence}
+  {faqs}
+  keywords={['Full-stack developer USA', 'Web developer for US startups', 'Next.js developer USA', 'SaaS MVP developer USA']}
+  ogLocale="en_US"
+  {alternates}
+  ctaTitle="Building a product for the US market?"
+  ctaCopy="Share the product stage, current bottleneck, and next release goal. I will respond with focused questions and a practical route forward."
+/>

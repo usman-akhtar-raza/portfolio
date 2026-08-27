@@ -24,6 +24,15 @@ const projects = [
     focus: ['Full-stack workflow', 'AI integration', 'Backend orchestration', 'Reliable delivery'],
     visual: 'content-showcase',
   },
+  {
+    index: '003',
+    href: '/projects/lawvera-rag-saas-platform',
+    role: 'Full-Stack Engineer · Final Year Project',
+    title: 'Lawvera RAG SaaS Platform',
+    statement: 'A web-based SaaS product exploring retrieval-augmented generation inside a focused legal information workflow.',
+    focus: ['RAG workflow', 'SaaS web application', 'Full-stack engineering', 'AI integration'],
+    visual: 'lawvera-showcase',
+  },
 ];
 
 const schema = {
@@ -44,7 +53,7 @@ const schema = {
 
 <Layout
   title="Software Engineering Projects | Usman Akhtar"
-  description="Explore sanitized case studies of Usman Akhtar's frontend and full-stack engineering work on Rulrr 2.0 and an AI-powered content generation system."
+  description="Explore Usman Akhtar's frontend, full-stack, SaaS, and AI engineering case studies, including Rulrr 2.0, content generation, and the Lawvera RAG platform."
   socialImage="/images/rulrr-2-mobile-showcase.webp"
   socialImageAlt="Four conceptual Rulrr mobile app screens showing overview, analytics, campaigns, and insights"
 >
@@ -54,15 +63,15 @@ const schema = {
 
   <main id="main-content" class="page-main projects-main">
     <section class="subpage-hero projects-hero" aria-labelledby="projects-title">
-      <div class="subpage-register hero-enter"><span>Engineering case studies / 02</span><span>Sanitized case studies</span><span>2024—Now</span></div>
+      <div class="subpage-register hero-enter"><span>Engineering case studies / 03</span><span>Responsible product evidence</span><span>2024—Now</span></div>
       <div class="subpage-hero-grid">
         <div>
           <p class="micro-label hero-enter">Real work / Responsible disclosure</p>
           <h1 id="projects-title" class="subpage-title"><span>SELECTED</span><em>WORK.</em></h1>
         </div>
         <div class="subpage-intro hero-enter">
-          <p>Two views of product engineering at Rulrr: first through the frontend surface, then across a full-stack AI-enabled system.</p>
-          <p class="confidential-note">No proprietary interface, client data, internal prompt, private API, or confidential metric is shown.</p>
+          <p>Selected evidence across frontend product systems, full-stack AI workflows, and a RAG-focused SaaS web application.</p>
+          <p class="confidential-note">Professional case studies are sanitized. No proprietary interface, client data, internal prompt, private API, or confidential metric is shown.</p>
         </div>
       </div>
     </section>
@@ -72,7 +81,7 @@ const schema = {
         <article class="project-index-card reveal" style={`--stagger: ${index * 75}ms`}>
           <a href={project.href} aria-label={`Read ${project.title} case study`}>
             <div class={`abstract-project-visual abstract-project-visual-${project.visual}`} aria-hidden="true">
-              <div class="abstract-visual-label">Conceptual product view / not the actual Rulrr UI</div>
+              <div class="abstract-visual-label">{project.visual === 'lawvera-showcase' ? 'Conceptual Lawvera SaaS web application' : 'Conceptual product view / not the actual Rulrr UI'}</div>
               {project.visual === 'showcase' ? (
                 <img
                   class="project-showcase-image"
@@ -93,6 +102,16 @@ const schema = {
                   loading="lazy"
                   decoding="async"
                 />
+              ) : project.visual === 'lawvera-showcase' ? (
+                <img
+                  class="project-showcase-image"
+                  src="/images/lawvera-rag-saas-webapp-showcase.png"
+                  width="1536"
+                  height="1024"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
               ) : project.visual === 'interface' ? (
                 <div class="abstract-interface">
                   <span></span><div><i></i><i></i><i></i></div><b></b><b></b>
@@ -102,7 +121,7 @@ const schema = {
               )}
             </div>
             <div class="project-index-copy">
-              <div class="project-index-meta"><span>{project.index}</span><span>{project.role}</span><span class="privacy-badge">Sanitized case study</span></div>
+              <div class="project-index-meta"><span>{project.index}</span><span>{project.role}</span><span class="privacy-badge">{project.visual === 'lawvera-showcase' ? 'Academic product case study' : 'Sanitized case study'}</span></div>
               <h2>{project.title}</h2>
               <p>{project.statement}</p>
               <ul>{project.focus.map((item) => <li>{item}</li>)}</ul>

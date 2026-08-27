@@ -5,8 +5,8 @@ const pathname = Astro.url.pathname;
 const links = [
   { href: '/', label: 'Home', index: '01', active: pathname === '/' },
   { href: '/about', label: 'About', index: '02', active: pathname === '/about' },
-  { href: '/projects', label: 'Projects', index: '03', active: pathname.startsWith('/projects') },
-  { href: '/#experience', label: 'Experience', index: '04', active: false },
+  { href: '/services', label: 'Services', index: '03', active: pathname.startsWith('/services') || pathname.startsWith('/uk/') || pathname.startsWith('/us/') },
+  { href: '/projects', label: 'Projects', index: '04', active: pathname.startsWith('/projects') },
   { href: '/#contact', label: 'Contact', index: '05', active: false },
 ];
 ---

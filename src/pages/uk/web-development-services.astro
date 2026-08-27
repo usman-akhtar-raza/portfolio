@@ -1,0 +1,58 @@
+---
+import CommercialPage from '../../components/CommercialPage.astro';
+
+const services = [
+  { title: 'SaaS and business web applications', description: 'Full-stack product development for UK startups and SMEs that need more than a marketing page: workflows, data, admin operations, and reliable delivery.' },
+  { title: 'Next.js admin panels', description: 'Responsive web-based administration tools for content, users, operational data, permissions, and product workflows.' },
+  { title: 'MVP engineering', description: 'A focused first release shaped around the product assumption the business needs to validate, with a maintainable route into iteration.' },
+  { title: 'AI-enabled product features', description: 'RAG, content generation, and practical AI integration connected to a clear business workflow and controlled backend services.' },
+];
+
+const process = [
+  { title: 'UK-focused discovery', description: 'A remote planning session to clarify users, commercial goal, data needs, constraints, and the most valuable release boundary.' },
+  { title: 'Scope and GBP proposal', description: 'A written scope covering deliverables, assumptions, milestones, collaboration rhythm, and a project proposal presented in GBP where appropriate.' },
+  { title: 'Visible remote delivery', description: 'Reviewable increments, written updates, and agreed overlap with UK business hours for planning and product decisions.' },
+  { title: 'Production and continuity', description: 'Responsive, error-path, data, and deployment checks followed by handover notes or a clear next iteration.' },
+];
+
+const evidence = [
+  { label: 'Full-stack product work', title: 'Rulrr Content Generation', description: 'A complete AI-enabled workflow across mobile UI, backend coordination, persistence, and production delivery.', href: '/projects/rulrr-content-generation-system' },
+  { label: 'SaaS and RAG', title: 'Lawvera', description: 'A SaaS web application centred on retrieval-augmented generation and accessible product workflows.', href: '/projects/lawvera-rag-saas-platform' },
+];
+
+const faqs = [
+  { question: 'Can you collaborate during UK working hours?', answer: 'Yes. I work remotely from Lahore and can agree regular overlap for planning, reviews, and important delivery moments while keeping routine progress asynchronous.' },
+  { question: 'Do you provide project proposals in GBP?', answer: 'Yes. After the scope is understood, a project proposal can be structured in GBP with deliverables, assumptions, milestones, and payment stages stated clearly.' },
+  { question: 'Can you work with a UK agency or internal product team?', answer: 'Yes. I can own a defined product area, extend an existing codebase, or collaborate with design, product, and backend contributors through a clear review workflow.' },
+];
+
+const alternates = [
+  { hreflang: 'en-GB', href: 'https://www.usmandevhub.top/uk/web-development-services/' },
+  { hreflang: 'en-US', href: 'https://www.usmandevhub.top/us/web-development-services/' },
+  { hreflang: 'x-default', href: 'https://www.usmandevhub.top/services/web-development/' },
+];
+---
+
+<CommercialPage
+  title="Web Development Services for UK Startups | Usman Akhtar"
+  description="Remote full-stack web development for UK startups and SMEs, including SaaS products, Next.js admin panels, MVPs, backend APIs, and AI features."
+  path="/uk/web-development-services"
+  eyebrow="Remote web development for UK product teams"
+  register={['UK services / 01', 'United Kingdom', 'Remote from Lahore']}
+  heroLine="BUILD FOR THE"
+  heroAccent="NEXT RELEASE."
+  intro="I help UK startups and small product teams build dependable SaaS applications, admin panels, MVPs, and AI-enabled workflows with clear remote communication and full-stack ownership."
+  availability="UK business-hours overlap available by agreement"
+  scopeLabel="For UK startups and SMEs"
+  scopeTitle="Product engineering without another management layer."
+  scopeIntro="Work directly with the engineer responsible for understanding the workflow, implementing the system, and preparing it for production."
+  {services}
+  {process}
+  {evidence}
+  {faqs}
+  keywords={['Web development services UK', 'Full-stack developer UK startups', 'Next.js developer UK', 'SaaS MVP developer UK']}
+  ogLocale="en_GB"
+  {alternates}
+  ctaTitle="Planning a UK web or SaaS project?"
+  ctaCopy="Send the current stage, core workflow, and desired launch outcome. I can respond with practical questions and the clearest next step."
+/>

@@ -1,0 +1,55 @@
+---
+import CommercialPage from '../../components/CommercialPage.astro';
+
+const services = [
+  { title: 'Product interfaces', description: 'Responsive React, Next.js, and Astro interfaces with clear states, reusable components, accessibility, and maintainable styling.' },
+  { title: 'Admin panels and dashboards', description: 'Operational interfaces that make data, permissions, workflows, and system feedback understandable to the people using them.' },
+  { title: 'Backend and API integration', description: 'Node.js and NestJS services, REST or GraphQL integration, validation, authentication flows, persistence, and product-safe errors.' },
+  { title: 'Production delivery', description: 'Performance checks, cloud integration, CI/CD awareness, deployment support, and a codebase prepared for continued iteration.' },
+];
+
+const process = [
+  { title: 'Product and codebase review', description: 'Understand the user flow, technical constraints, current implementation, and the smallest valuable delivery boundary.' },
+  { title: 'Architecture and interface plan', description: 'Define component boundaries, application states, data contracts, and a delivery sequence that can be reviewed early.' },
+  { title: 'Full-stack implementation', description: 'Build the interface and connect real services, data, validation, loading behavior, and edge cases.' },
+  { title: 'Quality and handover', description: 'Check responsive behavior, accessibility, error paths, performance, and the information needed to maintain the result.' },
+];
+
+const evidence = [
+  { label: 'Responsive frontend', title: 'Rulrr 2.0', description: 'Component architecture and product states designed for a frontend that could continue evolving.', href: '/projects/rulrr-2-frontend-engineering' },
+  { label: 'Interface to backend', title: 'Rulrr Content Generation', description: 'A real product flow supported across mobile UI, backend coordination, and persistence.', href: '/projects/rulrr-content-generation-system' },
+];
+
+const faqs = [
+  { question: 'Can you build both the customer website and its admin panel?', answer: 'Yes. I can build the public product surface, authenticated application areas, and the web-based admin panel while keeping shared behavior and data contracts consistent.' },
+  { question: 'Which frontend stack do you use?', answer: 'My active frontend stack includes React, Next.js, React Native, Astro, TypeScript, Tailwind CSS, and Zustand. The final choice follows the product rather than a trend.' },
+  { question: 'Can you improve an existing web application?', answer: 'Yes. Engagements can focus on a new workflow, responsive rebuild, component refactor, API integration, performance work, or a broader product iteration.' },
+];
+
+const alternates = [
+  { hreflang: 'en-GB', href: 'https://www.usmandevhub.top/uk/web-development-services/' },
+  { hreflang: 'en-US', href: 'https://www.usmandevhub.top/us/web-development-services/' },
+  { hreflang: 'x-default', href: 'https://www.usmandevhub.top/services/web-development/' },
+];
+---
+
+<CommercialPage
+  title="Full-Stack Web Development for SaaS Products | Usman Akhtar"
+  description="Production-ready full-stack web development for SaaS products, startup websites, admin panels, APIs, and responsive applications."
+  path="/services/web-development"
+  eyebrow="Full-stack web development / Product-focused delivery"
+  register={['Web development / 01', 'UK · USA · Worldwide', 'React · Next.js · Node.js']}
+  heroLine="WEB PRODUCTS"
+  heroAccent="BUILT TO LAST."
+  intro="I build responsive web applications, SaaS interfaces, admin panels, and the backend systems behind them—so the experience, data, and delivery path work as one product."
+  availability="Available for focused builds, product iterations, and long-term collaboration"
+  scopeLabel="Web development scope"
+  scopeTitle="Beyond a polished first screen."
+  scopeIntro="A production web product needs explicit states, dependable services, maintainable components, and a clear route into operation."
+  {services}
+  {process}
+  {evidence}
+  {faqs}
+  keywords={['Full-stack web development', 'Next.js development', 'SaaS web application development', 'Admin panel development']}
+  {alternates}
+/>

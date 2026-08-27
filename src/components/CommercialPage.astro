@@ -1,0 +1,216 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from './Header.astro';
+import Icon from './Icon.astro';
+import PageMotion from './PageMotion.astro';
+import SiteFooter from './SiteFooter.astro';
+
+interface DetailItem {
+  title: string;
+  description: string;
+}
+
+interface EvidenceItem {
+  label: string;
+  title: string;
+  description: string;
+  href: string;
+}
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface AlternateLink {
+  hreflang: string;
+  href: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  eyebrow: string;
+  register: [string, string, string];
+  heroLine: string;
+  heroAccent: string;
+  intro: string;
+  availability: string;
+  scopeLabel: string;
+  scopeTitle: string;
+  scopeIntro: string;
+  services: DetailItem[];
+  process: DetailItem[];
+  evidence: EvidenceItem[];
+  faqs: FAQItem[];
+  keywords: string[];
+  ctaTitle?: string;
+  ctaCopy?: string;
+  ogLocale?: string;
+  alternates?: AlternateLink[];
+}
+
+const {
+  title,
+  description,
+  path,
+  eyebrow,
+  register,
+  heroLine,
+  heroAccent,
+  intro,
+  availability,
+  scopeLabel,
+  scopeTitle,
+  scopeIntro,
+  services,
+  process,
+  evidence,
+  faqs,
+  keywords,
+  ctaTitle = 'Have a product to build?',
+  ctaCopy = 'Share the problem, current stage, and desired outcome. I will respond with the clearest next step.',
+  ogLocale = 'en_US',
+  alternates = [],
+} = Astro.props;
+
+const siteURL = 'https://www.usmandevhub.top';
+const pageURL = `${siteURL}${path}`;
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': `${pageURL}#webpage`,
+      url: pageURL,
+      name: title,
+      description,
+      inLanguage: ogLocale === 'en_GB' ? 'en-GB' : 'en-US',
+      isPartOf: { '@id': `${siteURL}/#website` },
+      about: { '@id': `${pageURL}#service` },
+      breadcrumb: { '@id': `${pageURL}#breadcrumb` },
+    },
+    {
+      '@type': 'Service',
+      '@id': `${pageURL}#service`,
+      name: `${keywords[0]} — Usman Akhtar`,
+      description,
+      serviceType: keywords[0],
+      areaServed: path.startsWith('/uk/')
+        ? { '@type': 'Country', name: 'United Kingdom' }
+        : path.startsWith('/us/')
+          ? { '@type': 'Country', name: 'United States' }
+          : [{ '@type': 'Country', name: 'United Kingdom' }, { '@type': 'Country', name: 'United States' }],
+      provider: { '@type': 'Person', '@id': `${siteURL}/#usman-akhtar`, name: 'Usman Akhtar' },
+      url: pageURL,
+      keywords,
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${pageURL}#breadcrumb`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteURL}/` },
+        { '@type': 'ListItem', position: 2, name: title.split('|')[0].trim(), item: pageURL },
+      ],
+    },
+  ],
+};
+---
+
+<Layout title={title} description={description} {ogLocale} htmlLang={ogLocale === 'en_GB' ? 'en-GB' : ogLocale === 'en_US' ? 'en-US' : 'en'} {alternates}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
+  <Header />
+
+  <main id="main-content" class="commercial-main">
+    <section class="commercial-hero" aria-labelledby="commercial-title">
+      <div class="commercial-register hero-enter">
+        <span>{register[0]}</span><span>{register[1]}</span><span>{register[2]}</span>
+      </div>
+      <div class="commercial-hero-grid">
+        <div>
+          <p class="micro-label hero-enter">{eyebrow}</p>
+          <h1 id="commercial-title" class="commercial-title"><span>{heroLine}</span><em>{heroAccent}</em></h1>
+        </div>
+        <div class="commercial-intro hero-enter">
+          <p>{intro}</p>
+          <div class="commercial-actions">
+            <a class="commercial-action-primary" href="mailto:akhtarusman716@gmail.com?subject=Project%20inquiry">Discuss your project <Icon name="arrow" class="size-5" /></a>
+            <a href="/projects">View case studies</a>
+          </div>
+          <p class="commercial-availability"><i aria-hidden="true"></i>{availability}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="commercial-scope" aria-labelledby="scope-title">
+      <header class="commercial-section-heading reveal">
+        <p class="micro-label">{scopeLabel}</p>
+        <h2 id="scope-title">{scopeTitle}</h2>
+        <p>{scopeIntro}</p>
+      </header>
+      <div class="commercial-card-grid">
+        {services.map((service, index) => (
+          <article class="commercial-card reveal" style={`--stagger: ${index * 55}ms`}>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="commercial-process" aria-labelledby="process-title">
+      <header class="commercial-section-heading reveal">
+        <p class="micro-label">Delivery / Clear ownership</p>
+        <h2 id="process-title">A practical path from brief to production.</h2>
+      </header>
+      <ol class="commercial-process-list">
+        {process.map((step, index) => (
+          <li class="reveal" style={`--stagger: ${index * 55}ms`}>
+            <span>{String(index + 1).padStart(2, '0')}</span><h3>{step.title}</h3><p>{step.description}</p>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="commercial-evidence" aria-labelledby="evidence-title">
+      <header class="commercial-section-heading reveal">
+        <p class="micro-label">Relevant evidence</p>
+        <h2 id="evidence-title">Proof through shipped systems.</h2>
+      </header>
+      <div class="commercial-evidence-grid">
+        {evidence.map((item, index) => (
+          <a class="commercial-evidence-card reveal" style={`--stagger: ${index * 60}ms`} href={item.href}>
+            <span>{item.label}</span><h3>{item.title}</h3><p>{item.description}</p><strong>Read case study <Icon name="arrow" class="size-5" /></strong>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="commercial-faq" aria-labelledby="faq-title">
+      <header class="commercial-section-heading reveal">
+        <p class="micro-label">Project questions</p>
+        <h2 id="faq-title">Before we start.</h2>
+      </header>
+      <div class="commercial-faq-list">
+        {faqs.map((item, index) => (
+          <details class="reveal" style={`--stagger: ${index * 45}ms`}>
+            <summary>{item.question}<span aria-hidden="true">+</span></summary>
+            <p>{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="commercial-cta reveal">
+      <p class="micro-label">Available for select remote work</p>
+      <div><h2>{ctaTitle}</h2><p>{ctaCopy}</p></div>
+      <a href="mailto:akhtarusman716@gmail.com?subject=Project%20inquiry">Start a conversation <Icon name="arrow" class="size-6" /></a>
+    </section>
+  </main>
+
+  <SiteFooter />
+  <PageMotion />
+</Layout>

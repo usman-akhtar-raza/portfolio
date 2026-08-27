@@ -1,0 +1,127 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Icon from '../../components/Icon.astro';
+import PageMotion from '../../components/PageMotion.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+const pageURL = 'https://www.usmandevhub.top/projects/lawvera-rag-saas-platform';
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CreativeWork',
+      '@id': `${pageURL}#case-study`,
+      url: pageURL,
+      name: 'Lawvera RAG SaaS Platform — Full-Stack Case Study',
+      description: 'A case study of Lawvera, Usman Akhtar’s final-year SaaS web application focused on retrieval-augmented generation and legal information workflows.',
+      author: { '@type': 'Person', '@id': 'https://www.usmandevhub.top/#usman-akhtar', name: 'Usman Akhtar' },
+      keywords: ['RAG SaaS platform', 'AI web application', 'Full-stack engineering', 'Final year project'],
+      image: 'https://www.usmandevhub.top/images/lawvera-rag-saas-webapp-showcase.png',
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${pageURL}#breadcrumb`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.usmandevhub.top/' },
+        { '@type': 'ListItem', position: 2, name: 'Projects', item: 'https://www.usmandevhub.top/projects' },
+        { '@type': 'ListItem', position: 3, name: 'Lawvera RAG SaaS Platform', item: pageURL },
+      ],
+    },
+  ],
+};
+---
+
+<Layout
+  title="Lawvera RAG SaaS Platform Case Study | Usman Akhtar"
+  description="Lawvera is Usman Akhtar's final-year SaaS web application focused on retrieval-augmented generation, usable legal information workflows, and full-stack product engineering."
+  socialImage="/images/lawvera-rag-saas-webapp-showcase.png"
+  socialImageAlt="Conceptual Lawvera SaaS web application showing a RAG-powered legal research workspace"
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
+  <Header />
+
+  <main id="main-content" class="page-main case-main case-main-lawvera">
+    <section class="case-hero" aria-labelledby="case-title">
+      <a class="case-back hero-enter" href="/projects">← Selected work</a>
+      <div class="case-kicker hero-enter"><span>Case study / 003</span><span>Final year project</span><span>Full-stack · RAG · SaaS</span></div>
+      <h1 id="case-title" class="case-title case-title-long"><span>LAWVERA</span><em>RAG SAAS.</em></h1>
+      <div class="case-summary hero-enter">
+        <p class="micro-label">Role / Full-Stack Engineer</p>
+        <p>A web-based SaaS platform exploring how retrieval-augmented generation can make legal information workflows more focused, traceable, and useful.</p>
+      </div>
+    </section>
+
+    <section class="case-abstract case-abstract-lawvera reveal" aria-label="Conceptual Lawvera RAG SaaS web application showcase">
+      <div class="case-abstract-label"><span>Conceptual SaaS product view</span><span>Portfolio visualization / Web application</span></div>
+      <div class="case-showcase-media">
+        <img
+          src="/images/lawvera-rag-saas-webapp-showcase.png"
+          width="1536"
+          height="1024"
+          alt="Conceptual Lawvera web application with document retrieval, source context, query workspace, and generated legal information panels"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </section>
+
+    <section class="case-story-grid">
+      <aside class="case-facts reveal">
+        <p class="micro-label">Project facts</p>
+        <dl>
+          <div><dt>Project</dt><dd>Lawvera</dd></div>
+          <div><dt>Type</dt><dd>SaaS web application</dd></div>
+          <div><dt>Focus</dt><dd>RAG and legal workflows</dd></div>
+          <div><dt>Context</dt><dd>Final year project</dd></div>
+          <div><dt>Role</dt><dd>Full-Stack Engineer</dd></div>
+        </dl>
+      </aside>
+
+      <div class="case-narrative">
+        <article class="reveal">
+          <p class="micro-label">Problem</p>
+          <h2>Legal information is only useful when the right context can be found.</h2>
+          <p>The project explored a focused product problem: how a web application could help a user ask a legal-information question, retrieve relevant source material, and receive a response grounded in that retrieved context instead of relying on an unconstrained model answer.</p>
+        </article>
+        <article class="reveal">
+          <p class="micro-label">Product approach</p>
+          <h2>RAG designed as a workflow, not a chat box.</h2>
+          <p>Lawvera was shaped as a SaaS web application with explicit input, retrieval, context, response, history, and administration surfaces. The interface needed to make the journey understandable while the system coordinated documents, search, model interaction, and saved results behind it.</p>
+        </article>
+        <article class="reveal">
+          <p class="micro-label">Engineering scope</p>
+          <h2>Ownership across product, data, and AI integration.</h2>
+          <ul class="case-list">
+            <li>Responsive SaaS web application and authenticated product flows</li>
+            <li>Document ingestion and retrieval-oriented data workflow</li>
+            <li>Backend coordination around retrieval and generated responses</li>
+            <li>Usable loading, empty, success, and failure states</li>
+            <li>Administrative visibility for managing the product workflow</li>
+            <li>Full-stack delivery carried as a final-year engineering project</li>
+          </ul>
+        </article>
+        <article class="reveal">
+          <p class="micro-label">Outcome</p>
+          <h2>A complete SaaS concept built around responsible context.</h2>
+          <p>The result demonstrated more than a model integration. It connected retrieval, generated output, product states, and web application structure into a coherent platform concept—and strengthened my practical understanding of how RAG belongs inside a full product system.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="disclosure-panel reveal">
+      <p class="micro-label">Project note</p>
+      <h2>Built as an academic product, presented as engineering evidence.</h2>
+      <p>Lawvera was my final-year project and a web application, not a mobile app. The portfolio visual is a conceptual showcase created to communicate the product category and workflow clearly; it does not represent client data or a third-party production interface.</p>
+    </section>
+
+    <nav class="case-next" aria-label="Project navigation">
+      <span>Explore services</span>
+      <a href="/services/ai-application-development">AI application development <Icon name="arrow" class="size-7" /></a>
+    </nav>
+  </main>
+
+  <SiteFooter />
+  <PageMotion />
+</Layout>

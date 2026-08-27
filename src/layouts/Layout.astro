@@ -6,6 +6,9 @@ interface Props {
   description: string;
   socialImage?: string;
   socialImageAlt?: string;
+  ogLocale?: string;
+  htmlLang?: string;
+  alternates?: Array<{ hreflang: string; href: string }>;
 }
 
 const {
@@ -13,6 +16,9 @@ const {
   description,
   socialImage = '/images/usman-akhtar-studio.png',
   socialImageAlt = 'Usman Akhtar, Full-Stack and AI Application Engineer',
+  ogLocale = 'en_US',
+  htmlLang = 'en',
+  alternates = [],
 } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin);
 const socialImageURL = new URL(socialImage, canonicalURL);
@@ -20,7 +26,7 @@ const shouldPreloadSocialImage = Astro.url.pathname === '/';
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang={htmlLang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -33,12 +39,14 @@ const shouldPreloadSocialImage = Astro.url.pathname === '/';
     <meta name="color-scheme" content="dark" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalURL} />
-    <link rel="alternate" hreflang="en" href={canonicalURL} />
+    {alternates.length > 0
+      ? alternates.map((alternate) => <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />)
+      : <link rel="alternate" hreflang="en" href={canonicalURL} />}
     <link rel="sitemap" href="/sitemap-index.xml" />
     {shouldPreloadSocialImage && <link rel="preload" as="image" href="/images/usman-akhtar-studio.png" />}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Usman Akhtar" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={ogLocale} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

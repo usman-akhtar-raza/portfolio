@@ -1,0 +1,49 @@
+---
+import CommercialPage from '../../components/CommercialPage.astro';
+
+const services = [
+  { title: 'Full-stack web development', description: 'Responsive product interfaces, admin panels, APIs, databases, and cloud-ready delivery built as one maintainable system.' },
+  { title: 'SaaS MVP engineering', description: 'Focused MVP development for startup teams that need to validate a workflow without creating a disposable technical foundation.' },
+  { title: 'AI application development', description: 'RAG, content generation, and practical model integrations designed around a useful product workflow rather than an isolated demo.' },
+];
+
+const process = [
+  { title: 'Define the outcome', description: 'Clarify the user, business goal, must-have workflow, constraints, and what a successful first release needs to prove.' },
+  { title: 'Shape the system', description: 'Translate the brief into product states, data boundaries, API responsibilities, and an implementation sequence.' },
+  { title: 'Build and validate', description: 'Deliver the product in reviewable increments, testing the real flow across interface, services, and data.' },
+  { title: 'Prepare to operate', description: 'Complete production checks, document key decisions, and leave a maintainable path for the next release.' },
+];
+
+const evidence = [
+  { label: 'Frontend engineering', title: 'Rulrr 2.0', description: 'Responsive product UI and reusable interface architecture built for continued iteration.', href: '/projects/rulrr-2-frontend-engineering' },
+  { label: 'Full-stack AI workflow', title: 'Rulrr Content Generation', description: 'A mobile-first generation capability carried through the UI, service layer, persistence, and delivery.', href: '/projects/rulrr-content-generation-system' },
+  { label: 'RAG SaaS platform', title: 'Lawvera', description: 'A final-year SaaS web application focused on retrieval-augmented generation and usable legal information workflows.', href: '/projects/lawvera-rag-saas-platform' },
+];
+
+const faqs = [
+  { question: 'What kind of projects are a good fit?', answer: 'SaaS products, admin panels, business web applications, mobile-first workflows, and AI-enabled product features with a clear user outcome are the strongest fit.' },
+  { question: 'Can you work with an existing codebase?', answer: 'Yes. I can review the current architecture, identify the safest path, and deliver a focused feature or improvement without forcing an unnecessary rewrite.' },
+  { question: 'Do you work with UK and US teams?', answer: 'Yes. I work remotely from Lahore with asynchronous communication and agreed overlap for reviews, planning, and important delivery moments.' },
+];
+---
+
+<CommercialPage
+  title="Full-Stack Web Development Services | Usman Akhtar"
+  description="Full-stack web development, SaaS MVP engineering, and AI application development for startups in the UK, USA, and worldwide."
+  path="/services"
+  eyebrow="Product engineering / From interface to infrastructure"
+  register={['Services / 01', 'UK · USA · Worldwide', 'Remote collaboration']}
+  heroLine="SOFTWARE THAT"
+  heroAccent="SHIPS."
+  intro="I help startup and product teams turn clear requirements into production-ready web, SaaS, mobile, and AI-enabled applications—across the interface, backend, data, and delivery path."
+  availability="Remote project and long-term collaboration available"
+  scopeLabel="Core services"
+  scopeTitle="One engineer across the product surface."
+  scopeIntro="Choose a focused engagement or combine capabilities around the product outcome you need to deliver."
+  {services}
+  {process}
+  {evidence}
+  {faqs}
+  keywords={['Full-stack web development', 'SaaS MVP development', 'AI application development', 'Next.js developer']}
+  ctaTitle="Need a dependable product build?"
+/>
