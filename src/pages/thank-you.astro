@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import Icon from '../components/Icon.astro';
+---
+
+<Layout
+  title="Project inquiry received | Usman Akhtar"
+  description="Your project inquiry has been received. Usman Akhtar will reply within one to two working days."
+  noindex={true}
+>
+  <Header />
+  <main id="main-content" class="thank-you-main">
+    <section class="thank-you-panel">
+      <p class="micro-label">Message received / Thank you</p>
+      <h1>Your brief is<br /><em>on its way.</em></h1>
+      <p>I’ll review the details and reply to the email address you provided within one to two working days.</p>
+      <div>
+        <a href="/">Return home <Icon name="arrow" class="size-5" /></a>
+        <a href="/projects">View case studies</a>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</Layout>

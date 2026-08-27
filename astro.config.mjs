@@ -7,6 +7,7 @@ export default defineConfig({
   integrations: [
     sitemap({
       namespaces: { news: false, video: false, xhtml: false },
+      filter: (page) => !page.endsWith('/thank-you/'),
     }),
   ],
   vite: {
