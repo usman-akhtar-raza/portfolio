@@ -46,7 +46,17 @@ const shouldPreloadSocialImage = Astro.url.pathname === '/';
       ? alternates.map((alternate) => <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />)
       : <link rel="alternate" hreflang="en" href={canonicalURL} />}
     <link rel="sitemap" href="/sitemap-index.xml" />
-    {shouldPreloadSocialImage && <link rel="preload" as="image" href="/images/usman-akhtar-studio.png" />}
+    {shouldPreloadSocialImage && (
+      <link
+        rel="preload"
+        as="image"
+        type="image/webp"
+        href="/images/usman-akhtar-studio-720.webp"
+        imagesrcset="/images/usman-akhtar-studio-480.webp 480w, /images/usman-akhtar-studio-720.webp 720w, /images/usman-akhtar-studio-941.webp 941w"
+        imagesizes="(max-width: 899px) 88vw, (max-width: 1180px) 42vw, 28rem"
+        fetchpriority="high"
+      />
+    )}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Usman Akhtar" />
     <meta property="og:locale" content={ogLocale} />
