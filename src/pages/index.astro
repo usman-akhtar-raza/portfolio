@@ -152,7 +152,16 @@ const schema = {
 
         <figure class="portrait-assembly hero-enter" data-portrait>
           <div class="portrait-window" data-portrait-frame>
-            <img src="/images/usman-akhtar-studio.png" width="941" height="1672" alt="Usman Akhtar in formal attire against a dark emerald studio background" />
+            <img
+              src="/images/usman-akhtar-studio-720.webp"
+              srcset="/images/usman-akhtar-studio-480.webp 480w, /images/usman-akhtar-studio-720.webp 720w, /images/usman-akhtar-studio-941.webp 941w"
+              sizes="(max-width: 899px) 88vw, (max-width: 1180px) 42vw, 28rem"
+              width="941"
+              height="1672"
+              fetchpriority="high"
+              decoding="async"
+              alt="Usman Akhtar in formal attire against a dark emerald studio background"
+            />
           </div>
           <figcaption>Usman Akhtar / 2026</figcaption>
           <span class="portrait-stamp">BUILD<br />WITH<br />INTENT</span>
@@ -296,7 +305,17 @@ const schema = {
 
         <article class="gallery-card gallery-card-portrait reveal" style="--stagger: 190ms" data-gallery-card>
           <div class="gallery-visual gallery-portrait">
-            <img src="/images/usman-akhtar-studio.png" width="941" height="1672" loading="lazy" alt="Usman Akhtar, software engineer, in a formal studio portrait" />
+            <img
+              src="/images/usman-akhtar-studio-720.webp"
+              srcset="/images/usman-akhtar-studio-480.webp 480w, /images/usman-akhtar-studio-720.webp 720w, /images/usman-akhtar-studio-941.webp 941w"
+              sizes="(max-width: 899px) calc(100vw - 2.5rem), 55vw"
+              width="941"
+              height="1672"
+              loading="lazy"
+              fetchpriority="low"
+              decoding="async"
+              alt="Usman Akhtar, software engineer, in a formal studio portrait"
+            />
             <span>ENGINEER / BUILDER / OWNER</span>
           </div>
           <footer><span>04 / The operator</span><strong>One engineer across the whole surface.</strong></footer>
@@ -381,8 +400,6 @@ const schema = {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const revealElements = document.querySelectorAll<HTMLElement>('.reveal');
     const progressBar = document.querySelector<HTMLElement>('[data-scroll-progress]');
-    const portrait = document.querySelector<HTMLElement>('[data-portrait]');
-    const portraitFrame = document.querySelector<HTMLElement>('[data-portrait-frame]');
     const galleryCards = document.querySelectorAll<HTMLElement>('[data-gallery-card]');
     const mobileRotator = document.querySelector<HTMLElement>('[data-mobile-rotation]');
 
@@ -421,19 +438,6 @@ const schema = {
       updateProgress();
 
       if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-        portrait?.addEventListener('pointermove', (event) => {
-          if (!portraitFrame || !portrait) return;
-          const bounds = portrait.getBoundingClientRect();
-          const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-          const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-          portraitFrame.style.setProperty('--rx', `${y * -1.5}deg`); portraitFrame.style.setProperty('--ry', `${x * 1.5}deg`);
-          portraitFrame.style.setProperty('--tx', `${x * 5}px`); portraitFrame.style.setProperty('--ty', `${y * 5}px`);
-        });
-        portrait?.addEventListener('pointerleave', () => {
-          ['--rx', '--ry'].forEach((property) => portraitFrame?.style.setProperty(property, '0deg'));
-          ['--tx', '--ty'].forEach((property) => portraitFrame?.style.setProperty(property, '0px'));
-        });
-
         galleryCards.forEach((card) => {
           card.addEventListener('pointermove', (event) => {
             const bounds = card.getBoundingClientRect();
