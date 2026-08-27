@@ -1,0 +1,48 @@
+---
+import CommercialPage from '../../components/CommercialPage.astro';
+
+const services = [
+  { title: 'MVP product definition', description: 'Turn the idea into a testable user workflow, prioritised release scope, and technical plan that protects the core learning goal.' },
+  { title: 'SaaS application build', description: 'Responsive application UI, authenticated workflows, admin operations, backend services, and persistence implemented as one product.' },
+  { title: 'Cloud-ready foundations', description: 'Practical architecture, environment handling, file workflows, delivery checks, and infrastructure decisions matched to the current stage.' },
+  { title: 'Iteration after launch', description: 'A maintainable base for feedback-driven improvements instead of a prototype that must be discarded once users arrive.' },
+];
+
+const process = [
+  { title: 'Reduce the idea to a useful loop', description: 'Identify the primary user, the problem being solved, and the shortest complete workflow that can test the product assumption.' },
+  { title: 'Choose deliberate foundations', description: 'Select architecture and tools based on the release, team, risk, and expected iteration—not unnecessary configuration.' },
+  { title: 'Ship in visible increments', description: 'Build the product in connected slices so the experience and technical assumptions can be reviewed before the final release.' },
+  { title: 'Launch with a next-step map', description: 'Validate production behavior, capture known trade-offs, and define which feedback should influence the next iteration.' },
+];
+
+const evidence = [
+  { label: 'SaaS product engineering', title: 'Rulrr 2.0', description: 'A maintainable product surface built around reusable interface patterns and explicit states.', href: '/projects/rulrr-2-frontend-engineering' },
+  { label: 'AI-enabled SaaS', title: 'Lawvera', description: 'A RAG-focused SaaS web application carried from product concept through full-stack implementation.', href: '/projects/lawvera-rag-saas-platform' },
+];
+
+const faqs = [
+  { question: 'Do you start with code immediately?', answer: 'Not usually. A short product and technical framing step prevents the build from solving the wrong workflow or creating avoidable rework.' },
+  { question: 'Can an MVP still be production-ready?', answer: 'Yes. MVP means focused scope, not careless engineering. The core workflow should still handle real states, validation, errors, security boundaries, and deployment responsibly.' },
+  { question: 'Can you continue after the first release?', answer: 'Yes. The project can continue as planned iterations, a longer product engagement, or a clean handover with documented decisions.' },
+];
+---
+
+<CommercialPage
+  title="SaaS MVP Development for Startups | Usman Akhtar"
+  description="Focused SaaS MVP development for startup teams that need a production-ready web product, admin workflow, backend, data, and cloud delivery."
+  path="/services/saas-mvp-development"
+  eyebrow="SaaS MVP engineering / Focus before feature count"
+  register={['SaaS MVP / 02', 'Startup product teams', 'Remote delivery']}
+  heroLine="VALIDATE THE"
+  heroAccent="RIGHT PRODUCT."
+  intro="I help startup teams shape and build focused SaaS MVPs that test a real workflow while creating a responsible foundation for the product that follows."
+  availability="Available for new MVPs and focused product rebuilds"
+  scopeLabel="MVP engineering scope"
+  scopeTitle="Focused enough to learn. Solid enough to use."
+  scopeIntro="The goal is not the most features. It is the smallest complete product experience that can produce trustworthy feedback."
+  {services}
+  {process}
+  {evidence}
+  {faqs}
+  keywords={['SaaS MVP development', 'Startup web application developer', 'Full-stack SaaS developer', 'MVP engineering']}
+/>

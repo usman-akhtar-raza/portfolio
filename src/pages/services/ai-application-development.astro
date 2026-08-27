@@ -1,0 +1,48 @@
+---
+import CommercialPage from '../../components/CommercialPage.astro';
+
+const services = [
+  { title: 'RAG product workflows', description: 'Retrieval-augmented experiences that connect user intent, relevant source material, model output, and product feedback clearly.' },
+  { title: 'Content generation systems', description: 'Generation flows with useful input design, progress, retry, persistence, history, and delivery behavior across mobile or web.' },
+  { title: 'AI service integration', description: 'Backend orchestration, validation, prompt boundaries, structured responses, error handling, and data flow around model capabilities.' },
+  { title: 'Human-centred product states', description: 'Interfaces that communicate what the system is doing, what users can trust, and how they can recover when output is incomplete.' },
+];
+
+const process = [
+  { title: 'Define the AI job', description: 'Start with the decision or workflow being improved, the available context, and the limits users need to understand.' },
+  { title: 'Design the complete lifecycle', description: 'Map input, retrieval or generation, validation, persistence, presentation, retry, and failure states before polishing the interface.' },
+  { title: 'Integrate with real product data', description: 'Connect the model capability through controlled backend services and explicit data boundaries rather than direct client-side calls.' },
+  { title: 'Test usefulness and recovery', description: 'Review representative outputs, edge cases, latency, user feedback, and operational behavior before treating the feature as complete.' },
+];
+
+const evidence = [
+  { label: 'Generation workflow', title: 'Rulrr Content Generation', description: 'AI generation embedded into a mobile-first product lifecycle across frontend and backend.', href: '/projects/rulrr-content-generation-system' },
+  { label: 'RAG SaaS platform', title: 'Lawvera', description: 'A web-based final-year project exploring retrieval-augmented generation inside a usable SaaS workflow.', href: '/projects/lawvera-rag-saas-platform' },
+];
+
+const faqs = [
+  { question: 'Can you add AI to an existing SaaS product?', answer: 'Yes. The first step is identifying where AI improves a real workflow, then integrating it through the existing product architecture with clear states and boundaries.' },
+  { question: 'Do you only build chat interfaces?', answer: 'No. Useful AI can appear inside search, content generation, document workflows, recommendations, admin operations, or a structured decision flow.' },
+  { question: 'How do you handle unreliable output?', answer: 'The product needs validation, constrained inputs and outputs where practical, recoverable error states, useful user controls, and clear communication about what the system produced.' },
+];
+---
+
+<CommercialPage
+  title="AI Application & RAG Development | Usman Akhtar"
+  description="AI application development for SaaS products, including RAG workflows, content generation systems, backend orchestration, and production-ready interfaces."
+  path="/services/ai-application-development"
+  eyebrow="AI application engineering / Models inside useful workflows"
+  register={['AI applications / 03', 'RAG · Generation · SaaS', 'Full-stack delivery']}
+  heroLine="AI WITH A"
+  heroAccent="REAL JOB."
+  intro="I build AI-enabled product features around a clear user outcome—from RAG and content generation to the interfaces, backend orchestration, persistence, and recovery states that make them usable."
+  availability="Available for focused AI features and complete product workflows"
+  scopeLabel="AI product scope"
+  scopeTitle="The model call is only one part of the feature."
+  scopeIntro="A dependable AI experience needs product context, controlled data flow, legible states, backend coordination, and a responsible path when output is uncertain."
+  {services}
+  {process}
+  {evidence}
+  {faqs}
+  keywords={['AI application development', 'RAG development', 'AI SaaS developer', 'Content generation system']}
+/>

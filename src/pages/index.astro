@@ -9,6 +9,30 @@ const capabilities = [
   { number: '03', title: 'Built to survive production', description: 'Performance, maintainability, observability, and delivery are part of the build from day one.' },
 ];
 
+const commercialServices = [
+  {
+    index: '01',
+    title: 'Full-stack web development',
+    description: 'Responsive web applications, SaaS interfaces, admin panels, APIs, databases, and production delivery built as one maintainable product system.',
+    href: '/services/web-development',
+    meta: 'React · Next.js · Node.js',
+  },
+  {
+    index: '02',
+    title: 'SaaS MVP development',
+    description: 'Focused MVP engineering for startup teams that need to validate a real workflow without creating a disposable technical foundation.',
+    href: '/services/saas-mvp-development',
+    meta: 'Product scope · Full-stack · Cloud',
+  },
+  {
+    index: '03',
+    title: 'AI application development',
+    description: 'RAG, content generation, and model-powered product capabilities connected to clear interfaces, controlled services, and useful recovery states.',
+    href: '/services/ai-application-development',
+    meta: 'RAG · Generation · AI SaaS',
+  },
+];
+
 const outcomes = [
   {
     index: '001', eyebrow: 'Rulrr 2.0 / Frontend engineering', title: 'A coherent product surface built for continued iteration.',
@@ -23,10 +47,10 @@ const outcomes = [
     href: '/projects/rulrr-content-generation-system',
   },
   {
-    index: '003', eyebrow: 'Cloud / Delivery', title: 'Infrastructure that supports the product quietly.',
-    description: 'Implemented secure S3 file workflows, supported backend deployment on EC2, and worked with Git reviews and CI/CD for repeatable releases.',
-    evidence: ['Secure file uploads', 'Cloud deployment', 'Release workflow'], stack: 'AWS S3 · AWS EC2 · CI/CD',
-    href: undefined,
+    index: '003', eyebrow: 'Lawvera / Final year project', title: 'RAG carried into a complete SaaS web application.',
+    description: 'Designed and built a web-based platform connecting document retrieval, generated responses, product states, and administration into one coherent workflow.',
+    evidence: ['RAG workflow', 'SaaS web platform', 'Full-stack delivery'], stack: 'RAG · AI INTEGRATION · SAAS',
+    href: '/projects/lawvera-rag-saas-platform',
   },
 ];
 
@@ -64,7 +88,7 @@ const schema = {
       '@id': `${siteURL}#website`,
       url: siteURL,
       name: 'Usman Akhtar',
-      description: 'Portfolio of Usman Akhtar, a Full-Stack and AI Application Engineer based in Lahore, Pakistan.',
+      description: 'Portfolio and web development services of Usman Akhtar, a Full-Stack and AI Application Engineer serving startups remotely in the UK, USA, and worldwide.',
       inLanguage: 'en',
       author: { '@id': personID },
     },
@@ -72,8 +96,8 @@ const schema = {
       '@type': 'ProfilePage',
       '@id': `${siteURL}#profile-page`,
       url: siteURL,
-      name: 'Usman Akhtar — Full-Stack & AI Application Engineer',
-      dateModified: '2026-08-25T00:00:00+05:00',
+      name: 'Usman Akhtar — Full-Stack Web & AI Application Engineer',
+      dateModified: '2026-08-27T00:00:00+05:00',
       mainEntity: { '@id': personID },
       isPartOf: { '@id': `${siteURL}#website` },
     },
@@ -83,13 +107,13 @@ const schema = {
       name: 'Usman Akhtar',
       url: siteURL,
       image: `${siteURL}images/usman-akhtar-studio.png`,
-      jobTitle: 'Full-Stack & AI Application Engineer',
+      jobTitle: 'Full-Stack Web & AI Application Engineer',
       description: 'Software engineer building production-ready web, mobile, backend, and AI-powered applications.',
       email: 'mailto:akhtarusman716@gmail.com',
       address: { '@type': 'PostalAddress', addressLocality: 'Lahore', addressRegion: 'Punjab', addressCountry: 'PK' },
       alumniOf: { '@type': 'CollegeOrUniversity', name: 'The Superior University' },
       worksFor: { '@type': 'Organization', name: 'rulrr.com' },
-      sameAs: ['https://www.linkedin.com/in/usman-akhtar-dev'],
+      sameAs: ['https://www.linkedin.com/in/usman-akhtar-dev', 'https://github.com/usman-akhtar-raza'],
       knowsAbout: ['Full-stack development', 'React', 'Next.js', 'NestJS', 'React Native', 'RAG', 'AI agents', 'AWS'],
     },
   ],
@@ -97,8 +121,8 @@ const schema = {
 ---
 
 <Layout
-  title="Usman Akhtar | Full-Stack & AI Application Engineer"
-  description="Usman Akhtar is a Full-Stack and AI Application Engineer in Lahore, building production-ready web, mobile, backend, and AI-powered products."
+  title="Full-Stack Web Developer for SaaS & AI Products | Usman Akhtar"
+  description="Hire Usman Akhtar, a full-stack software engineer building SaaS platforms, responsive web applications, admin panels, and AI-powered products for startups in the UK, USA, and worldwide."
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
   <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
@@ -107,7 +131,7 @@ const schema = {
   <main id="main-content">
     <section id="top" class="dossier-hero" aria-labelledby="hero-title">
       <div class="hero-register hero-enter">
-        <span>Software engineer</span><span>Full-stack / Mobile / AI</span><span>Lahore, Pakistan</span>
+        <span>Full-stack software engineer</span><span>Web / SaaS / AI</span><span>UK · USA · Worldwide</span>
         <span class="availability"><i aria-hidden="true"></i> Available for select work</span>
       </div>
 
@@ -119,10 +143,10 @@ const schema = {
       <div class="hero-composition">
         <div class="hero-intro hero-enter">
           <p class="micro-label">Field note / 001</p>
-          <p>I’m Usman Akhtar, a full-stack and AI application engineer. I build useful software across the full product surface, from the first interaction to the system behind it.</p>
+          <p>I build production-ready SaaS platforms, admin panels, and AI-powered web applications for startups—from the first interaction to the system behind it.</p>
           <div class="hero-actions">
-            <a href="#work">View selected evidence <Icon name="arrow" class="size-5" /></a>
-            <a href="/Usman_Akhtar_Full_Stack_AI_Engineer_CV.pdf" download><Icon name="download" class="size-4" /> Resume PDF</a>
+            <a href="/services">Explore services <Icon name="arrow" class="size-5" /></a>
+            <a href="/projects">View case studies <Icon name="arrow" class="size-4" /></a>
           </div>
         </div>
 
@@ -136,7 +160,7 @@ const schema = {
 
         <aside class="hero-brief hero-enter">
           <p class="micro-label">Current practice</p>
-          <p>Production web, mobile, and AI application engineering.</p>
+          <p>Full-stack web, SaaS MVP, mobile, and AI application engineering.</p>
           <dl>
             <div><dt>Since</dt><dd>2024</dd></div><div><dt>Mode</dt><dd>Remote</dd></div><div><dt>Bias</dt><dd>Shipping</dd></div>
           </dl>
@@ -177,8 +201,23 @@ const schema = {
       </div>
     </section>
 
+    <section id="services" class="home-services" aria-labelledby="home-services-title">
+      <header class="home-services-heading reveal">
+        <p class="micro-label">02 / Services</p>
+        <h2 id="home-services-title">Build the product.<br /><em>Connect the system.</em></h2>
+        <div><p>Remote full-stack development for startup and product teams in the UK, USA, and worldwide.</p><a href="/services">View all services <Icon name="arrow" class="size-5" /></a></div>
+      </header>
+      <div class="home-services-grid">
+        {commercialServices.map((service, index) => (
+          <a class="home-service-card reveal" style={`--stagger: ${index * 60}ms`} href={service.href}>
+            <span>{service.index}</span><h3>{service.title}</h3><p>{service.description}</p><strong>{service.meta}</strong><Icon name="arrow" class="size-6" />
+          </a>
+        ))}
+      </div>
+    </section>
+
     <section id="work" class="ink-section work-section" data-section="work">
-      <div class="section-rail reveal"><span>02</span><p>Selected evidence</p></div>
+      <div class="section-rail reveal"><span>03</span><p>Selected evidence</p></div>
       <div class="section-body">
         <header class="work-heading reveal">
           <p class="micro-label">No invented case studies</p>
@@ -209,7 +248,7 @@ const schema = {
 
     <section id="gallery" class="gallery-section" data-section="gallery" aria-labelledby="gallery-title">
       <div class="gallery-register reveal">
-        <span>03 / Practice gallery</span><span>Five working surfaces</span><span>Scroll to explore</span>
+        <span>04 / Practice gallery</span><span>Five working surfaces</span><span>Scroll to explore</span>
       </div>
 
       <header class="gallery-heading reveal">
@@ -277,7 +316,7 @@ const schema = {
     </section>
 
     <section id="experience" class="paper-section timeline-section" data-section="experience">
-      <div class="section-rail reveal"><span>04</span><p>Timeline</p></div>
+      <div class="section-rail reveal"><span>05</span><p>Timeline</p></div>
       <div class="section-body timeline-layout">
         <header class="timeline-intro reveal">
           <p class="micro-label">Experience / Education</p>
@@ -321,10 +360,10 @@ const schema = {
     </section>
 
     <section id="contact" class="contact-section" data-section="contact">
-      <div class="contact-register reveal"><span>05 / Contact</span><span>Lahore · Pakistan</span><span>Remote · Worldwide</span></div>
+      <div class="contact-register reveal"><span>06 / Contact</span><span>Serving UK · USA</span><span>Remote · Worldwide</span></div>
       <div class="contact-title reveal"><p>LET’S BUILD</p><p>SOMETHING</p><p><em>USEFUL.</em></p></div>
       <div class="contact-lower reveal">
-        <p>I’m open to remote full-time, freelance, project-based, and long-term collaboration where thoughtful engineering matters.</p>
+        <p>I’m available for remote full-stack web development, SaaS MVPs, AI application work, and long-term product collaboration with teams in the UK, USA, and worldwide.</p>
         <a href="mailto:akhtarusman716@gmail.com">akhtarusman716@gmail.com <Icon name="arrow" class="size-8" /></a>
       </div>
       <footer>
