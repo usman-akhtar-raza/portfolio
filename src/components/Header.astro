@@ -7,7 +7,7 @@ const links = [
   { href: '/about', label: 'About', index: '02', active: pathname === '/about' },
   { href: '/services', label: 'Services', index: '03', active: pathname.startsWith('/services') || pathname.startsWith('/uk/') || pathname.startsWith('/us/') },
   { href: '/projects', label: 'Projects', index: '04', active: pathname.startsWith('/projects') },
-  { href: '/#contact', label: 'Contact', index: '05', active: false },
+  { href: '#project-inquiry', label: 'Contact', index: '05', active: false, contact: true },
 ];
 ---
 
@@ -18,10 +18,10 @@ const links = [
   </a>
 
   <nav class="topbar-nav" aria-label="Primary navigation">
-    {links.map((link) => <a href={link.href} class:list={{ 'is-active': link.active }} data-nav-link>{link.label}</a>)}
+    {links.map((link) => <a href={link.href} class:list={{ 'is-active': link.active }} data-nav-link data-contact-trigger={link.contact ? '' : undefined}>{link.label}</a>)}
   </nav>
 
-  <a class="topbar-talk" href="mailto:akhtarusman716@gmail.com">
+  <a class="topbar-talk" href="#project-inquiry" data-contact-trigger>
     Start a project <Icon name="arrow" class="size-4" />
   </a>
 
@@ -33,11 +33,11 @@ const links = [
   <nav id="mobile-navigation" class="mobile-nav" aria-label="Mobile navigation" data-mobile-nav>
     <p>Index / 2026</p>
     {links.map((link, index) => (
-      <a href={link.href} style={`--index: ${index}`}>
+      <a href={link.href} style={`--index: ${index}`} data-contact-trigger={link.contact ? '' : undefined}>
         <span>{link.index}</span>{link.label}
       </a>
     ))}
-    <a class="mobile-contact" href="mailto:akhtarusman716@gmail.com">
+    <a class="mobile-contact" href="#project-inquiry" data-contact-trigger>
       akhtarusman716@gmail.com <Icon name="arrow" class="size-5" />
     </a>
   </nav>

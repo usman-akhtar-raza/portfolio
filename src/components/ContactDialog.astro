@@ -1,0 +1,112 @@
+---
+import Icon from './Icon.astro';
+---
+
+<dialog id="project-inquiry" class="contact-dialog" aria-labelledby="contact-dialog-title" data-contact-dialog>
+  <div class="contact-dialog-shell">
+    <header class="contact-dialog-header">
+      <div>
+        <p class="micro-label">Project inquiry / UK · USA · Worldwide</p>
+        <h2 id="contact-dialog-title">Tell me what you’re building.</h2>
+      </div>
+      <button type="button" class="contact-dialog-close" aria-label="Close project inquiry form" data-contact-close>
+        <Icon name="close" class="size-6" />
+      </button>
+    </header>
+
+    <div class="contact-dialog-grid">
+      <aside>
+        <p>Share a little context about your project. I’ll review the brief and reply directly by email.</p>
+        <a href="mailto:akhtarusman716@gmail.com">akhtarusman716@gmail.com</a>
+        <dl>
+          <div><dt>Response</dt><dd>Within 1–2 working days</dd></div>
+          <div><dt>Work</dt><dd>Web · SaaS · AI applications</dd></div>
+          <div><dt>Location</dt><dd>Remote · Worldwide</dd></div>
+        </dl>
+      </aside>
+
+      <form class="contact-form" action="https://formsubmit.co/akhtarusman716@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New project inquiry — UsmanDevHub" />
+        <input type="hidden" name="_next" value="https://www.usmandevhub.top/thank-you/" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="source_page" value="https://www.usmandevhub.top/" data-contact-source />
+        <input class="contact-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+        <div class="contact-field contact-field-half">
+          <label for="inquiry-name">Your name</label>
+          <input id="inquiry-name" name="name" type="text" autocomplete="name" placeholder="Jane Smith" required />
+        </div>
+        <div class="contact-field contact-field-half">
+          <label for="inquiry-email">Work email</label>
+          <input id="inquiry-email" name="email" type="email" autocomplete="email" placeholder="jane@company.com" required />
+        </div>
+        <div class="contact-field contact-field-half">
+          <label for="inquiry-company">Company <span>Optional</span></label>
+          <input id="inquiry-company" name="company" type="text" autocomplete="organization" placeholder="Company or startup" />
+        </div>
+        <div class="contact-field contact-field-half">
+          <label for="inquiry-service">What do you need?</label>
+          <select id="inquiry-service" name="project_type" required>
+            <option value="" selected disabled>Select a service</option>
+            <option>Full-stack web development</option>
+            <option>SaaS MVP development</option>
+            <option>AI application / RAG development</option>
+            <option>React or Next.js frontend</option>
+            <option>React Native mobile application</option>
+            <option>Long-term engineering support</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="contact-field">
+          <label for="inquiry-budget">Approximate budget</label>
+          <select id="inquiry-budget" name="budget" required>
+            <option value="" selected disabled>Select a range</option>
+            <option>Under $1,000</option>
+            <option>$1,000–$3,000</option>
+            <option>$3,000–$7,500</option>
+            <option>$7,500–$15,000</option>
+            <option>$15,000+</option>
+            <option>Not decided yet</option>
+          </select>
+        </div>
+        <div class="contact-field">
+          <label for="inquiry-message">Project details</label>
+          <textarea id="inquiry-message" name="message" rows="5" minlength="20" placeholder="What are you building, what stage is it at, and what outcome do you need?" required></textarea>
+        </div>
+
+        <div class="contact-form-footer">
+          <p>Your details are used only to respond to this inquiry.</p>
+          <button type="submit">Send project brief <Icon name="arrow" class="size-5" /></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  const contactDialog = document.querySelector<HTMLDialogElement>('[data-contact-dialog]');
+  const contactSource = contactDialog?.querySelector<HTMLInputElement>('[data-contact-source]');
+
+  const openContactDialog = (event: Event) => {
+    event.preventDefault();
+    if (!contactDialog) return;
+    if (contactSource) contactSource.value = window.location.href;
+    contactDialog.showModal();
+    document.body.classList.add('dialog-open');
+    window.setTimeout(() => contactDialog.querySelector<HTMLInputElement>('#inquiry-name')?.focus(), 50);
+  };
+
+  const closeContactDialog = () => {
+    contactDialog?.close();
+    document.body.classList.remove('dialog-open');
+  };
+
+  document.querySelectorAll<HTMLElement>('[data-contact-trigger]').forEach((trigger) => {
+    trigger.addEventListener('click', openContactDialog);
+  });
+  contactDialog?.querySelector('[data-contact-close]')?.addEventListener('click', closeContactDialog);
+  contactDialog?.addEventListener('click', (event) => {
+    if (event.target === contactDialog) closeContactDialog();
+  });
+  contactDialog?.addEventListener('close', () => document.body.classList.remove('dialog-open'));
+</script>
