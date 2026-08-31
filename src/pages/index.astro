@@ -78,6 +78,37 @@ const toolkit = [
   { label: 'Delivery', items: ['AWS EC2', 'AWS S3', 'Git', 'CI/CD', 'TypeScript'] },
 ];
 
+const ukWebsiteFaqs = [
+  {
+    question: 'How much does a small business website cost in the UK?',
+    answer: 'The cost depends on the number of pages, design requirements, integrations, content, and whether you need a straightforward business website or a custom web application. After a short discovery call, I provide a clear proposal in GBP with the scope, milestones, and payment stages stated upfront.',
+  },
+  {
+    question: 'How long does it take to build a business website?',
+    answer: 'A focused marketing website can usually be delivered in a few weeks, while a SaaS product, booking workflow, admin panel, or complex integration needs a longer roadmap. I confirm a realistic timeline after reviewing the content, functionality, feedback process, and launch requirements.',
+  },
+  {
+    question: 'Do I need a domain name and hosting before we start?',
+    answer: 'No. We can choose the domain, hosting, and deployment setup during the project. If you already have them, I can work with the existing accounts. Wherever practical, the domain, hosting, analytics, and source-code access remain under your control.',
+  },
+  {
+    question: 'Will my website be mobile-friendly and ready for SEO?',
+    answer: 'Yes. Every build is designed for phones, tablets, and desktops, with accessible structure, fast-loading assets, crawlable pages, metadata, sitemap support, and technical SEO foundations. Search rankings also depend on competition, content, authority, and ongoing marketing, so no responsible developer can guarantee a specific position.',
+  },
+  {
+    question: 'Can you redesign my existing website without losing its content or SEO?',
+    answer: 'Yes. I can audit the current website, preserve valuable content and URLs, plan redirects where necessary, and rebuild the experience around clearer conversion paths. The migration approach is agreed before development so avoidable traffic and indexing issues are reduced.',
+  },
+  {
+    question: 'Do you provide website maintenance and support after launch?',
+    answer: 'Yes. A project can end with a documented handover or continue with an agreed support arrangement for monitoring, security updates, fixes, content changes, and new product iterations. The responsibilities and ongoing costs are made clear before launch.',
+  },
+  {
+    question: 'Can you work remotely with a UK business or startup?',
+    answer: 'Yes. I work remotely with agreed overlap for UK business hours, scheduled reviews, and written progress updates. You work directly with the engineer responsible for the interface, backend, data, and delivery rather than passing decisions through multiple layers.',
+  },
+];
+
 const siteURL = 'https://www.usmandevhub.top/';
 const personID = `${siteURL}#usman-akhtar`;
 const schema = {
@@ -97,7 +128,7 @@ const schema = {
       '@id': `${siteURL}#profile-page`,
       url: siteURL,
       name: 'Usman Akhtar — Full-Stack Web & AI Application Engineer',
-      dateModified: '2026-08-27T00:00:00+05:00',
+      dateModified: '2026-08-31T00:00:00+05:00',
       mainEntity: { '@id': personID },
       isPartOf: { '@id': `${siteURL}#website` },
     },
@@ -115,6 +146,20 @@ const schema = {
       worksFor: { '@type': 'Organization', name: 'rulrr.com' },
       sameAs: ['https://www.linkedin.com/in/usman-akhtar-dev', 'https://github.com/usman-akhtar-raza'],
       knowsAbout: ['Full-stack development', 'React', 'Next.js', 'NestJS', 'React Native', 'RAG', 'AI agents', 'AWS'],
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${siteURL}#website-faq`,
+      url: `${siteURL}#faq`,
+      inLanguage: 'en-GB',
+      mainEntity: ukWebsiteFaqs.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
     },
   ],
 };
@@ -378,8 +423,36 @@ const schema = {
       </div>
     </section>
 
+    <section id="faq" class="home-faq" aria-labelledby="home-faq-title">
+      <header class="home-faq-heading reveal">
+        <p class="micro-label">06 / UK website questions</p>
+        <h2 id="home-faq-title">Before you commission<br /><em>a website.</em></h2>
+        <p>Clear answers to the questions UK businesses commonly ask before hiring a web developer.</p>
+      </header>
+
+      <div class="home-faq-content">
+        <div class="home-faq-list">
+          {ukWebsiteFaqs.map((item, index) => (
+            <details class="reveal" style={`--stagger: ${index * 45}ms`}>
+              <summary>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <strong>{item.question}</strong>
+                <i aria-hidden="true">+</i>
+              </summary>
+              <p>{item.answer}</p>
+            </details>
+          ))}
+        </div>
+        <nav class="home-faq-guides reveal" aria-label="Regional website cost guides">
+          <p class="micro-label">Detailed regional guides</p>
+          <a href="/uk/small-business-website-cost">UK website cost guide <Icon name="arrow" class="size-5" /></a>
+          <a href="/us/small-business-website-cost">USA website cost guide <Icon name="arrow" class="size-5" /></a>
+        </nav>
+      </div>
+    </section>
+
     <section id="contact" class="contact-section" data-section="contact">
-      <div class="contact-register reveal"><span>06 / Contact</span><span>Serving UK · USA</span><span>Remote · Worldwide</span></div>
+      <div class="contact-register reveal"><span>07 / Contact</span><span>Serving UK · USA</span><span>Remote · Worldwide</span></div>
       <div class="contact-title reveal"><p>LET’S BUILD</p><p>SOMETHING</p><p><em>USEFUL.</em></p></div>
       <div class="contact-lower reveal">
         <p>I’m available for remote full-stack web development, SaaS MVPs, AI application work, and long-term product collaboration with teams in the UK, USA, and worldwide.</p>

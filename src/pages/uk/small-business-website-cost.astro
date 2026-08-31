@@ -1,0 +1,71 @@
+---
+import RegionalCostGuide from '../../components/RegionalCostGuide.astro';
+
+const pricingBands = [
+  {
+    label: 'DIY or configured template',
+    price: '£10–£80 / month or up to £1,500',
+    bestFor: 'A new or very small business that needs a simple online presence and can manage content, setup, and limitations internally.',
+    includes: ['Hosted site builder or existing template', 'Basic pages and contact details', 'Limited custom functionality'],
+  },
+  {
+    label: 'Professional business website',
+    price: 'Around £1,500–£6,000',
+    bestFor: 'A service business that needs custom presentation, clear enquiry paths, responsive implementation, and sound technical foundations.',
+    includes: ['Customised design and page system', 'Mobile, performance, forms, and technical SEO', 'Launch support and agreed handover'],
+  },
+  {
+    label: 'Custom platform or web application',
+    price: 'Often £6,000–£20,000+',
+    bestFor: 'A business building bookings, dashboards, memberships, SaaS workflows, AI features, or integrations beyond a marketing website.',
+    includes: ['Product discovery and workflow design', 'Frontend, backend, data, and integrations', 'Deeper QA, deployment, and iteration'],
+  },
+];
+
+const faqs = [
+  { question: 'What is a reasonable budget for a five-page UK business website?', answer: 'A professionally delivered five-page site commonly sits in the low thousands rather than having one universal price. Custom design, content support, forms, migration, analytics, and SEO requirements determine where it lands inside the wider market range.' },
+  { question: 'Is hosting included in the website build price?', answer: 'Sometimes, but it should be explicit. Ask whether hosting, domain renewal, email, backups, monitoring, security updates, and content changes are included, billed separately, or owned directly by your business.' },
+  { question: 'How long does a UK small-business website take to build?', answer: 'A focused site can often be completed in a few weeks when content and feedback are ready. Bespoke design, copywriting, migrations, integrations, or multi-step business workflows extend the timeline.' },
+  { question: 'Will a cheaper website rank on Google?', answer: 'Price alone does not determine rankings. Google visibility depends on crawlable implementation, useful content, competition, authority, links, page experience, and continued improvement. No responsible developer can guarantee a specific ranking.' },
+  { question: 'Do I own the website after it is built?', answer: 'Ownership should be written into the proposal. Clarify source-code access, domain and hosting accounts, design assets, licensed fonts or plugins, analytics, and whether any platform subscription restricts portability.' },
+  { question: 'Can you quote and invoice a UK project in GBP?', answer: 'Yes. After discovery, I can provide a proposal in GBP with scope, assumptions, milestones, payment stages, and any ongoing costs clearly separated.' },
+];
+
+const sources = [
+  { label: 'The 2026 UK Website Pricing Report — Irvale Studio', href: 'https://www.irvale.com/blog/uk-website-pricing-report-2026' },
+  { label: 'What Should a Website Cost? — Jones Digital', href: 'https://jonesdigital.co.uk/insights/what-should-a-website-cost/' },
+  { label: 'Google SEO Starter Guide', href: 'https://developers.google.com/search/docs/fundamentals/seo-starter-guide' },
+];
+
+const alternates = [
+  { hreflang: 'en-GB', href: 'https://www.usmandevhub.top/uk/small-business-website-cost/' },
+  { hreflang: 'en-US', href: 'https://www.usmandevhub.top/us/small-business-website-cost/' },
+  { hreflang: 'x-default', href: 'https://www.usmandevhub.top/uk/small-business-website-cost/' },
+];
+---
+
+<RegionalCostGuide
+  title="How Much Does a Small Business Website Cost in the UK? 2026 Guide | Usman Akhtar"
+  description="A practical 2026 guide to small-business website costs in the UK, including freelancer and custom web application ranges, cost drivers, hosting, ownership, SEO, and what a professional quote should include."
+  path="/uk/small-business-website-cost/"
+  regionCode="UK"
+  regionName="the United Kingdom"
+  htmlLang="en-GB"
+  ogLocale="en_GB"
+  heroAccent="in the UK?"
+  shortAnswer="In 2026, a professionally built UK small-business website commonly sits somewhere between roughly £1,500 and £6,000. A simple template can cost less, while custom workflows, e-commerce, SaaS, or integrations can move the project well beyond that range."
+  rangeNote="Market guidance, not a fixed personal quote. Prices vary by scope and provider."
+  {pricingBands}
+  regionalNotes={[
+    'Ask for the project scope and payment stages in GBP so exchange rates and responsibilities are clear before work begins.',
+    'Agree UK-hours overlap for planning and reviews while keeping routine progress documented asynchronously.',
+  ]}
+  {faqs}
+  {sources}
+  relatedLinks={[
+    { label: 'Web development services for UK startups', href: '/uk/web-development-services' },
+    { label: 'Full-stack web development', href: '/services/web-development' },
+    { label: 'View real project case studies', href: '/projects' },
+  ]}
+  {alternates}
+/>

@@ -22,6 +22,11 @@ interface FAQItem {
   answer: string;
 }
 
+interface RelatedLink {
+  label: string;
+  href: string;
+}
+
 interface AlternateLink {
   hreflang: string;
   href: string;
@@ -44,6 +49,7 @@ interface Props {
   process: DetailItem[];
   evidence: EvidenceItem[];
   faqs: FAQItem[];
+  relatedLinks?: RelatedLink[];
   keywords: string[];
   ctaTitle?: string;
   ctaCopy?: string;
@@ -68,6 +74,7 @@ const {
   process,
   evidence,
   faqs,
+  relatedLinks = [],
   keywords,
   ctaTitle = 'Have a product to build?',
   ctaCopy = 'Share the problem, current stage, and desired outcome. I will respond with the clearest next step.',
@@ -201,6 +208,12 @@ const schema = {
             <p>{item.answer}</p>
           </details>
         ))}
+        {relatedLinks.length > 0 && (
+          <nav class="commercial-related-links" aria-label="Related planning guides">
+            <p class="micro-label">Related planning guides</p>
+            {relatedLinks.map((link) => <a href={link.href}>{link.label}<Icon name="arrow" class="size-5" /></a>)}
+          </nav>
+        )}
       </div>
     </section>
 
