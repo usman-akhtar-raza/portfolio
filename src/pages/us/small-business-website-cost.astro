@@ -1,0 +1,71 @@
+---
+import RegionalCostGuide from '../../components/RegionalCostGuide.astro';
+
+const pricingBands = [
+  {
+    label: 'DIY or configured template',
+    price: '$15–$100 / month or up to $2,000',
+    bestFor: 'A new or local business that needs a basic online presence and can manage content, setup, and platform limitations internally.',
+    includes: ['Hosted builder or existing template', 'Essential pages and contact details', 'Limited custom functionality'],
+  },
+  {
+    label: 'Professional business website',
+    price: 'Around $2,000–$10,000',
+    bestFor: 'A service business that needs custom presentation, conversion-focused pages, responsive delivery, and dependable technical foundations.',
+    includes: ['Customised design and reusable page system', 'Mobile, performance, forms, and technical SEO', 'Launch support and agreed handover'],
+  },
+  {
+    label: 'Custom platform or web application',
+    price: 'Often $10,000–$30,000+',
+    bestFor: 'A business building dashboards, memberships, SaaS workflows, AI features, operational tooling, or complex third-party integrations.',
+    includes: ['Product discovery and workflow design', 'Frontend, backend, data, and integrations', 'Deeper QA, deployment, and iteration'],
+  },
+];
+
+const faqs = [
+  { question: 'What is a realistic budget for a five-page US business website?', answer: 'A professional five-page site often costs a few thousand dollars, but there is no reliable flat rate. Strategy, custom design, copy, migration, forms, analytics, and SEO requirements determine the actual scope.' },
+  { question: 'Are domain, hosting, and maintenance included?', answer: 'They may be included or separate. The proposal should identify domain ownership, hosting, SSL, backups, monitoring, software updates, support hours, and any recurring platform or third-party fees.' },
+  { question: 'How long does a small-business website take to build?', answer: 'A focused marketing site can often be delivered in several weeks when content and feedback are ready. Bespoke product design, content creation, integrations, migrations, or application workflows require a longer delivery plan.' },
+  { question: 'Does a new website include SEO?', answer: 'A responsible build should include technical foundations such as crawlable pages, metadata, sitemap support, performance, mobile responsiveness, and accessible structure. Rankings also require useful content, authority, links, and ongoing optimisation.' },
+  { question: 'Should my business own the source code and hosting account?', answer: 'Ownership and portability should be agreed before development. Clarify source-code access, domain and hosting accounts, design assets, licensed dependencies, analytics, and the process for moving the site later.' },
+  { question: 'Can you provide a proposal in USD and work with a US team?', answer: 'Yes. I can provide a USD proposal with explicit milestones and work through async updates with planned overlap for reviews and decisions across US time zones.' },
+];
+
+const sources = [
+  { label: 'How Much Does It Cost to Build a Website? — TechRadar', href: 'https://www.techradar.com/news/how-much-does-it-cost-to-build-a-website' },
+  { label: 'Best Small Business Website Builders — TechRadar', href: 'https://www.techradar.com/best/best-small-business-website-builders' },
+  { label: 'Google SEO Starter Guide', href: 'https://developers.google.com/search/docs/fundamentals/seo-starter-guide' },
+];
+
+const alternates = [
+  { hreflang: 'en-GB', href: 'https://www.usmandevhub.top/uk/small-business-website-cost/' },
+  { hreflang: 'en-US', href: 'https://www.usmandevhub.top/us/small-business-website-cost/' },
+  { hreflang: 'x-default', href: 'https://www.usmandevhub.top/us/small-business-website-cost/' },
+];
+---
+
+<RegionalCostGuide
+  title="How Much Does a Small Business Website Cost in the USA? 2026 Guide | Usman Akhtar"
+  description="A practical 2026 guide to small-business website costs in the USA, including template, professional website, and custom web application ranges, cost drivers, ownership, hosting, and SEO."
+  path="/us/small-business-website-cost/"
+  regionCode="US"
+  regionName="the United States"
+  htmlLang="en-US"
+  ogLocale="en_US"
+  heroAccent="in the USA?"
+  shortAnswer="In 2026, a professionally built US small-business website commonly begins in the low thousands and can reach $10,000 or more. A template-led site can cost less, while custom applications, SaaS workflows, e-commerce, and integrations move into substantially higher budgets."
+  rangeNote="Broad market guidance, not a fixed personal quote. Scope and delivery model determine the final price."
+  {pricingBands}
+  regionalNotes={[
+    'Use a written USD proposal with deliverables, assumptions, milestone payments, and recurring third-party costs separated clearly.',
+    'Combine async progress with planned timezone overlap for reviews, demos, and decisions that benefit from live discussion.',
+  ]}
+  {faqs}
+  {sources}
+  relatedLinks={[
+    { label: 'Web development services for US startups', href: '/us/web-development-services' },
+    { label: 'SaaS MVP development', href: '/services/saas-mvp-development' },
+    { label: 'View real project case studies', href: '/projects' },
+  ]}
+  {alternates}
+/>

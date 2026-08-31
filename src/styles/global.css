@@ -484,6 +484,28 @@ body.dialog-open { overflow: hidden; }
 .home-service-card:hover p { color: var(--color-ink); }
 .home-service-card:hover > svg { transform: translateX(.35rem); }
 
+/* Homepage FAQ */
+.home-faq { display: grid; grid-template-columns: minmax(17rem, .42fr) minmax(0, 1fr); gap: clamp(3rem, 9vw, 9rem); padding: var(--section-y) var(--page-x); background: var(--color-paper-light); }
+.home-faq-heading { position: sticky; top: 7rem; align-self: start; }
+.home-faq-heading .micro-label { color: var(--color-teal); }
+.home-faq-heading h2 { max-width: 48rem; margin: 1.2rem 0 2rem; font-size: clamp(3rem, 5.8vw, 6.4rem); letter-spacing: -.065em; line-height: .86; }
+.home-faq-heading h2 em { color: var(--color-signal); font-family: var(--font-serif); font-weight: 400; }
+.home-faq-heading > p:last-child { max-width: 29rem; margin: 0; color: #4e5a53; font-size: .8rem; line-height: 1.75; }
+.home-faq-content { min-width: 0; }
+.home-faq-list { border-top: 1px solid var(--color-ink); }
+.home-faq-list details { border-bottom: 1px solid var(--hairline); }
+.home-faq-list summary { display: grid; grid-template-columns: 2.2rem minmax(0, 1fr) auto; gap: 1.2rem; align-items: start; padding: 1.6rem 0; cursor: pointer; list-style: none; }
+.home-faq-list summary::-webkit-details-marker { display: none; }
+.home-faq-list summary > span { padding-top: .32rem; color: var(--color-teal); font: 800 .56rem var(--font-mono); letter-spacing: .08em; }
+.home-faq-list summary strong { font-family: var(--font-serif); font-size: clamp(1.3rem, 2.15vw, 2.2rem); font-weight: 400; line-height: 1.08; }
+.home-faq-list summary i { color: var(--color-signal); font: 400 1.8rem/1 var(--font-sans); font-style: normal; transition: transform 180ms var(--ease-editorial); }
+.home-faq-list details[open] summary i { transform: rotate(45deg); }
+.home-faq-list details > p { max-width: 47rem; margin: 0; padding: 0 3rem 1.8rem 3.4rem; color: #4e5a53; font-size: .8rem; line-height: 1.78; }
+.home-faq-guides, .commercial-related-links { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.5rem; margin-top: 2.5rem; }
+.home-faq-guides .micro-label, .commercial-related-links .micro-label { grid-column: 1 / -1; margin-bottom: .8rem; color: var(--color-teal); }
+.home-faq-guides a, .commercial-related-links a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 0; border-top: 1px solid var(--hairline); font: 750 .59rem/1.4 var(--font-mono); letter-spacing: .04em; text-transform: uppercase; }
+.home-faq-guides a:hover, .commercial-related-links a:hover { color: var(--color-signal); }
+
 /* Commercial service and regional pages */
 .commercial-main { background: var(--color-paper); }
 .commercial-hero { min-height: 52rem; padding: 7.5rem var(--page-x) clamp(5rem, 9vw, 9rem); border-bottom: 1px solid var(--color-ink); }
@@ -538,11 +560,78 @@ body.dialog-open { overflow: hidden; }
 .commercial-faq summary span { color: var(--color-signal); font-family: var(--font-sans); transition: transform 180ms var(--ease-editorial); }
 .commercial-faq details[open] summary span { transform: rotate(45deg); }
 .commercial-faq details p { max-width: 44rem; margin: 0; padding: 0 2.5rem 1.7rem 0; color: #4e5a53; font-size: .8rem; line-height: 1.75; }
+.commercial-related-links { padding-top: 1rem; }
 .commercial-cta { display: grid; grid-template-columns: minmax(12rem, .28fr) minmax(20rem, 1fr) auto; gap: clamp(2rem, 5vw, 5rem); align-items: end; padding: clamp(4rem, 8vw, 8rem) var(--page-x); background: var(--color-teal); color: var(--color-paper); }
 .commercial-cta .micro-label { color: var(--color-signal); }
 .commercial-cta h2 { max-width: 55rem; margin: 0; font-family: var(--font-serif); font-size: clamp(3rem, 6vw, 6.5rem); font-weight: 400; letter-spacing: -.055em; line-height: .86; }
 .commercial-cta div p { max-width: 40rem; margin: 1.5rem 0 0; color: #c7cec8; font-size: .78rem; line-height: 1.7; }
 .commercial-cta > a { display: inline-flex; align-items: center; gap: .75rem; padding-bottom: .55rem; border-bottom: 1px solid currentColor; color: var(--color-signal); font: 800 .62rem var(--font-mono); letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
+
+/* Regional website cost guides */
+.guide-main { background: var(--color-paper); }
+.guide-hero { min-height: 54rem; padding: 7.5rem var(--page-x) clamp(5rem, 9vw, 9rem); border-bottom: 1px solid var(--color-ink); }
+.guide-register { display: grid; grid-template-columns: 1fr 1fr auto; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--hairline); color: #59645d; font: 700 .58rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
+.guide-hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(21rem, .55fr); gap: clamp(3rem, 7vw, 8rem); align-items: end; min-height: 39rem; padding-top: clamp(4rem, 8vw, 7rem); }
+.guide-hero .micro-label { color: var(--color-teal); }
+.guide-hero h1 { max-width: 74rem; margin: 1.2rem 0 0; font-size: clamp(4.2rem, 8vw, 9rem); font-weight: 900; letter-spacing: -.065em; line-height: .82; }
+.guide-hero h1 span, .guide-hero h1 em { display: block; }
+.guide-hero h1 em { margin-top: .08em; color: var(--color-signal); font-family: var(--font-serif); font-size: .72em; font-weight: 400; letter-spacing: -.03em; }
+.guide-answer { padding: 1.6rem 0 0; border-top: 1px solid var(--color-ink); }
+.guide-answer > p:nth-child(2) { margin: 1rem 0 1.5rem; font-family: var(--font-serif); font-size: clamp(1.5rem, 2.2vw, 2.4rem); line-height: 1.15; }
+.guide-answer > span { display: block; color: #59645d; font: 650 .58rem/1.6 var(--font-mono); text-transform: uppercase; }
+.guide-pricing, .guide-drivers, .guide-faq { padding: var(--section-y) var(--page-x); }
+.guide-section-heading { display: grid; grid-template-columns: minmax(10rem, .25fr) minmax(20rem, .9fr) minmax(16rem, .4fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; margin-bottom: clamp(4rem, 8vw, 8rem); }
+.guide-section-heading .micro-label { color: var(--color-teal); }
+.guide-section-heading h2 { max-width: 65rem; margin: -.2rem 0 0; font-size: clamp(3rem, 6.2vw, 6.8rem); letter-spacing: -.065em; line-height: .87; }
+.guide-section-heading h2 em { color: var(--color-signal); font-family: var(--font-serif); font-weight: 400; }
+.guide-section-heading > p:last-child { margin: 0; color: #4e5a53; font-size: .8rem; line-height: 1.75; }
+.guide-pricing { background: #d9d2c2; }
+.guide-price-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--color-ink); border-left: 1px solid var(--color-ink); }
+.guide-price-card { display: flex; flex-direction: column; min-height: 34rem; padding: clamp(1.5rem, 3vw, 3rem); border-right: 1px solid var(--color-ink); border-bottom: 1px solid var(--color-ink); }
+.guide-price-card > span { color: var(--color-teal); font: 800 .57rem var(--font-mono); letter-spacing: .07em; text-transform: uppercase; }
+.guide-price-card > strong { margin: auto 0 1.5rem; font-family: var(--font-serif); font-size: clamp(2.2rem, 4vw, 4.5rem); font-weight: 400; letter-spacing: -.05em; line-height: .9; }
+.guide-price-card > p { min-height: 5rem; margin: 0 0 1.5rem; color: #4e5a53; font-size: .77rem; line-height: 1.7; }
+.guide-price-card ul { display: grid; gap: .65rem; margin: 0; padding: 1.2rem 0 0; border-top: 1px solid var(--hairline); list-style: none; }
+.guide-price-card li { display: grid; grid-template-columns: 1rem 1fr; gap: .5rem; font-size: .68rem; line-height: 1.5; }
+.guide-price-card li::before { content: '↳'; color: var(--color-signal); }
+.guide-drivers { background: var(--color-ink); color: var(--color-paper); }
+.guide-drivers .guide-section-heading { grid-template-columns: minmax(10rem, .25fr) 1fr; }
+.guide-drivers .guide-section-heading .micro-label { color: var(--color-signal); }
+.guide-driver-list { border-top: 1px solid rgba(238,233,218,.3); }
+.guide-driver-list article { display: grid; grid-template-columns: 3.5rem minmax(14rem, .55fr) minmax(20rem, 1fr); gap: clamp(1rem, 4vw, 4rem); padding: 2rem 0; border-bottom: 1px solid rgba(238,233,218,.22); }
+.guide-driver-list span { color: var(--color-signal); font: 800 .58rem var(--font-mono); }
+.guide-driver-list h3 { margin: -.2rem 0 0; font-family: var(--font-serif); font-size: clamp(1.5rem, 2.5vw, 2.8rem); font-weight: 400; line-height: 1; }
+.guide-driver-list p { max-width: 45rem; margin: 0; color: #aeb5af; font-size: .78rem; line-height: 1.72; }
+.guide-quote { display: grid; grid-template-columns: minmax(17rem, .45fr) minmax(0, 1fr); gap: clamp(4rem, 10vw, 11rem); padding: var(--section-y) var(--page-x); background: var(--color-paper-light); }
+.guide-quote-copy { position: sticky; top: 7rem; align-self: start; }
+.guide-quote-copy .micro-label, .guide-region-notes .micro-label { color: var(--color-teal); }
+.guide-quote-copy h2 { margin: 1rem 0 2rem; font-size: clamp(3rem, 5.8vw, 6.3rem); letter-spacing: -.065em; line-height: .87; }
+.guide-quote-copy > p:last-child { max-width: 32rem; margin: 0; color: #4e5a53; font-size: .8rem; line-height: 1.75; }
+.guide-checklist { margin: 0; padding: 0; border-top: 1px solid var(--color-ink); list-style: none; }
+.guide-checklist li { display: grid; grid-template-columns: 2rem 1fr; gap: 1rem; padding: 1.5rem 0; border-bottom: 1px solid var(--hairline); font-family: var(--font-serif); font-size: clamp(1.25rem, 2vw, 2rem); line-height: 1.1; }
+.guide-checklist li::before { content: '✓'; color: var(--color-signal); font: 800 .8rem var(--font-mono); }
+.guide-region-notes { margin-top: 4rem; padding: clamp(1.5rem, 3vw, 3rem); border: 1px solid var(--color-ink); }
+.guide-region-notes > p:not(.micro-label) { margin: 1.25rem 0 0; color: #4e5a53; font-size: .78rem; line-height: 1.72; }
+.guide-faq { background: var(--color-paper); }
+.guide-faq-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, .32fr); gap: clamp(3rem, 8vw, 8rem); }
+.guide-faq-list { border-top: 1px solid var(--color-ink); }
+.guide-faq-list details { border-bottom: 1px solid var(--hairline); }
+.guide-faq-list summary { display: grid; grid-template-columns: 2.2rem minmax(0, 1fr) auto; gap: 1.2rem; padding: 1.5rem 0; cursor: pointer; list-style: none; }
+.guide-faq-list summary::-webkit-details-marker { display: none; }
+.guide-faq-list summary span { padding-top: .3rem; color: var(--color-teal); font: 800 .56rem var(--font-mono); }
+.guide-faq-list summary strong { font-family: var(--font-serif); font-size: clamp(1.25rem, 2vw, 2.1rem); font-weight: 400; line-height: 1.1; }
+.guide-faq-list summary i { color: var(--color-signal); font: 400 1.8rem/1 var(--font-sans); font-style: normal; transition: transform 180ms var(--ease-editorial); }
+.guide-faq-list details[open] summary i { transform: rotate(45deg); }
+.guide-faq-list details > p { max-width: 46rem; margin: 0; padding: 0 3rem 1.7rem 3.4rem; color: #4e5a53; font-size: .8rem; line-height: 1.75; }
+.guide-links { align-self: start; padding: 1.5rem; border: 1px solid var(--color-ink); }
+.guide-links .micro-label { margin-bottom: 1rem; color: var(--color-teal); }
+.guide-links a { display: flex; justify-content: space-between; gap: 1rem; padding: 1rem 0; border-top: 1px solid var(--hairline); font: 750 .6rem/1.5 var(--font-mono); text-transform: uppercase; }
+.guide-links a:hover { color: var(--color-signal); }
+.guide-citations { display: grid; grid-template-columns: minmax(12rem, .25fr) minmax(18rem, .7fr) minmax(18rem, .55fr); gap: clamp(2rem, 5vw, 5rem); padding: 3rem var(--page-x); border-top: 1px solid var(--hairline); background: var(--color-paper-light); }
+.guide-citations .micro-label { color: var(--color-teal); }
+.guide-citations > p:nth-child(2) { margin: 0; color: #4e5a53; font-size: .72rem; line-height: 1.7; }
+.guide-citations ul { margin: 0; padding: 0; list-style: none; }
+.guide-citations li { padding: .65rem 0; border-top: 1px solid var(--hairline); font: 700 .56rem/1.5 var(--font-mono); text-transform: uppercase; }
 
 /* Shared inner-page footer */
 .site-footer { padding: clamp(4rem, 8vw, 8rem) var(--page-x) 1.5rem; background: var(--color-signal); color: var(--color-ink); }
@@ -748,6 +837,11 @@ body.dialog-open { overflow: hidden; }
   .home-services-heading > div { max-width: 35rem; }
   .home-services-grid { grid-template-columns: 1fr; }
   .home-service-card { min-height: 23rem; }
+  .home-faq { grid-template-columns: 1fr; gap: 4rem; }
+  .home-faq-heading { position: static; }
+  .home-faq-list summary { grid-template-columns: 1.8rem minmax(0, 1fr) auto; gap: .8rem; }
+  .home-faq-list details > p { padding-left: 2.6rem; padding-right: 1.5rem; }
+  .home-faq-guides, .commercial-related-links { grid-template-columns: 1fr; }
   .commercial-hero { min-height: auto; padding: 5.75rem var(--page-x) 5rem; }
   .commercial-register { grid-template-columns: 1fr auto; }
   .commercial-register span:nth-child(2) { display: none; }
@@ -766,6 +860,25 @@ body.dialog-open { overflow: hidden; }
   .commercial-faq { grid-template-columns: 1fr; gap: 4rem; }
   .commercial-cta { grid-template-columns: 1fr; }
   .commercial-cta > a { grid-column: 1; }
+  .guide-hero { min-height: auto; padding: 5.75rem var(--page-x) 5rem; }
+  .guide-register { grid-template-columns: 1fr auto; }
+  .guide-register span:nth-child(2) { display: none; }
+  .guide-hero-grid { display: block; min-height: auto; padding-top: 4.5rem; }
+  .guide-hero h1 { font-size: clamp(3.2rem, 14vw, 5.8rem); line-height: .84; }
+  .guide-answer { margin-top: 3.5rem; }
+  .guide-section-heading { display: block; }
+  .guide-section-heading h2 { margin-top: 1rem; }
+  .guide-section-heading > p:last-child { margin-top: 1.5rem; }
+  .guide-price-grid { grid-template-columns: 1fr; }
+  .guide-price-card { min-height: 28rem; }
+  .guide-driver-list article { grid-template-columns: 2.5rem 1fr; gap: 1rem; }
+  .guide-driver-list p { grid-column: 2; }
+  .guide-quote { grid-template-columns: 1fr; gap: 4rem; }
+  .guide-quote-copy { position: static; }
+  .guide-faq-grid { grid-template-columns: 1fr; }
+  .guide-faq-list summary { grid-template-columns: 1.8rem minmax(0, 1fr) auto; gap: .8rem; }
+  .guide-faq-list details > p { padding-left: 2.6rem; padding-right: 1.5rem; }
+  .guide-citations { grid-template-columns: 1fr; }
   .site-footer > div:first-child { grid-template-columns: 1fr; }
   .site-footer > div:first-child > a { font-size: clamp(2.3rem, 11vw, 4rem); }
   .site-footer-meta { grid-template-columns: 1fr; }

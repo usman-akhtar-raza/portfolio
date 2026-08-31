@@ -1,0 +1,248 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from './Header.astro';
+import Icon from './Icon.astro';
+import SiteFooter from './SiteFooter.astro';
+import PageMotion from './PageMotion.astro';
+
+interface PricingBand {
+  label: string;
+  price: string;
+  bestFor: string;
+  includes: string[];
+}
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface SourceItem {
+  label: string;
+  href: string;
+}
+
+interface RelatedLink {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  regionCode: 'UK' | 'US';
+  regionName: string;
+  htmlLang: 'en-GB' | 'en-US';
+  ogLocale: 'en_GB' | 'en_US';
+  heroAccent: string;
+  shortAnswer: string;
+  rangeNote: string;
+  pricingBands: PricingBand[];
+  regionalNotes: string[];
+  faqs: FAQItem[];
+  sources: SourceItem[];
+  relatedLinks: RelatedLink[];
+  alternates: Array<{ hreflang: string; href: string }>;
+}
+
+const {
+  title,
+  description,
+  path,
+  regionCode,
+  regionName,
+  htmlLang,
+  ogLocale,
+  heroAccent,
+  shortAnswer,
+  rangeNote,
+  pricingBands,
+  regionalNotes,
+  faqs,
+  sources,
+  relatedLinks,
+  alternates,
+} = Astro.props;
+
+const costDrivers = [
+  { title: 'Scope and page structure', description: 'A focused five-page business site is a different project from a marketplace, member portal, SaaS product, or multi-role admin system.' },
+  { title: 'Design and content readiness', description: 'Custom visual direction, copywriting, photography, brand work, and content migration all affect the amount of strategy and production required.' },
+  { title: 'Business functionality', description: 'Bookings, payments, authentication, dashboards, CRM connections, email automation, and third-party integrations add real implementation and testing work.' },
+  { title: 'SEO and migration risk', description: 'Technical SEO foundations are part of a sound build. A redesign with established URLs, rankings, and analytics needs additional migration planning.' },
+  { title: 'Quality and accessibility', description: 'Responsive behaviour, performance, accessibility, error handling, browser testing, and production monitoring distinguish a dependable build from a quick mock-up.' },
+  { title: 'Support after launch', description: 'Clarify whether the quote includes handover, training, hosting, maintenance, security updates, content changes, or continued product iterations.' },
+];
+
+const quoteChecklist = [
+  'Pages, workflows, integrations, and content responsibilities',
+  'Responsive design for mobile, tablet, and desktop',
+  'Technical SEO foundations, analytics, and sitemap setup',
+  'Accessibility, performance, browser, and form testing',
+  'Domain, hosting, source-code, and account ownership',
+  'Milestones, feedback rounds, launch, handover, and support',
+];
+
+const siteURL = 'https://www.usmandevhub.top';
+const pageURL = `${siteURL}${path}`;
+const personID = `${siteURL}/#usman-akhtar`;
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': `${pageURL}#webpage`,
+      url: pageURL,
+      name: title,
+      description,
+      inLanguage: htmlLang,
+      isPartOf: { '@id': `${siteURL}/#website` },
+      breadcrumb: { '@id': `${pageURL}#breadcrumb` },
+      mainEntity: { '@id': `${pageURL}#article` },
+    },
+    {
+      '@type': 'Article',
+      '@id': `${pageURL}#article`,
+      headline: title.split('|')[0].trim(),
+      description,
+      datePublished: '2026-08-31T00:00:00+05:00',
+      dateModified: '2026-08-31T00:00:00+05:00',
+      author: { '@id': personID, '@type': 'Person', name: 'Usman Akhtar' },
+      publisher: { '@id': personID },
+      mainEntityOfPage: { '@id': `${pageURL}#webpage` },
+      about: ['Small business website cost', 'Web development pricing', regionName],
+      citation: sources.map((source) => source.href),
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${pageURL}#faq`,
+      mainEntity: faqs.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: { '@type': 'Answer', text: item.answer },
+      })),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${pageURL}#breadcrumb`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteURL}/` },
+        { '@type': 'ListItem', position: 2, name: `${regionCode} web development`, item: `${siteURL}/${regionCode.toLowerCase()}/web-development-services/` },
+        { '@type': 'ListItem', position: 3, name: 'Small business website cost', item: pageURL },
+      ],
+    },
+  ],
+};
+---
+
+<Layout {title} {description} {htmlLang} {ogLocale} {alternates}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
+  <Header />
+
+  <main id="main-content" class="guide-main">
+    <article>
+      <header class="guide-hero">
+        <div class="guide-register hero-enter">
+          <span>{regionCode} website cost / 2026</span><span>Independent planning guide</span><span>Written by Usman Akhtar</span>
+        </div>
+        <div class="guide-hero-grid">
+          <div>
+            <p class="micro-label hero-enter">Small-business website planning</p>
+            <h1><span>How much does a small business website cost</span><em>{heroAccent}</em></h1>
+          </div>
+          <aside class="guide-answer hero-enter" aria-label="Short answer">
+            <p class="micro-label">The short answer</p>
+            <p>{shortAnswer}</p>
+            <span>{rangeNote}</span>
+          </aside>
+        </div>
+      </header>
+
+      <section class="guide-pricing" aria-labelledby="guide-pricing-title">
+        <header class="guide-section-heading reveal">
+          <p class="micro-label">01 / Planning ranges</p>
+          <h2 id="guide-pricing-title">Three very different things can all be called <em>“a website”.</em></h2>
+          <p>These are broad market-planning ranges, not a fixed quote. The useful comparison is what each route includes, what it excludes, and what the business needs the website to achieve.</p>
+        </header>
+        <div class="guide-price-grid">
+          {pricingBands.map((band, index) => (
+            <article class="guide-price-card reveal" style={`--stagger: ${index * 60}ms`}>
+              <span>{String(index + 1).padStart(2, '0')} / {band.label}</span>
+              <strong>{band.price}</strong>
+              <p>{band.bestFor}</p>
+              <ul>{band.includes.map((item) => <li>{item}</li>)}</ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="guide-drivers" aria-labelledby="guide-drivers-title">
+        <header class="guide-section-heading reveal">
+          <p class="micro-label">02 / Cost drivers</p>
+          <h2 id="guide-drivers-title">What changes the final quote?</h2>
+        </header>
+        <div class="guide-driver-list">
+          {costDrivers.map((driver, index) => (
+            <article class="reveal" style={`--stagger: ${index * 45}ms`}>
+              <span>{String(index + 1).padStart(2, '0')}</span><h3>{driver.title}</h3><p>{driver.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="guide-quote" aria-labelledby="guide-quote-title">
+        <div class="guide-quote-copy reveal">
+          <p class="micro-label">03 / Compare like with like</p>
+          <h2 id="guide-quote-title">What should a professional website quote include?</h2>
+          <p>A lower number is not automatically better if the quote leaves content, migration, mobile behaviour, analytics, ownership, or post-launch work undefined.</p>
+        </div>
+        <div>
+          <ul class="guide-checklist">
+            {quoteChecklist.map((item) => <li class="reveal">{item}</li>)}
+          </ul>
+          <div class="guide-region-notes reveal">
+            <p class="micro-label">Working with a remote developer in {regionName}</p>
+            {regionalNotes.map((note) => <p>{note}</p>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-faq" aria-labelledby="guide-faq-title">
+        <header class="guide-section-heading reveal">
+          <p class="micro-label">04 / Buyer questions</p>
+          <h2 id="guide-faq-title">Website cost questions, answered clearly.</h2>
+        </header>
+        <div class="guide-faq-grid">
+          <div class="guide-faq-list">
+            {faqs.map((item, index) => (
+              <details class="reveal" style={`--stagger: ${index * 45}ms`}>
+                <summary><span>{String(index + 1).padStart(2, '0')}</span><strong>{item.question}</strong><i aria-hidden="true">+</i></summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
+          </div>
+          <aside class="guide-links reveal">
+            <p class="micro-label">Continue planning</p>
+            {relatedLinks.map((link) => <a href={link.href}>{link.label}<Icon name="arrow" class="size-5" /></a>)}
+          </aside>
+        </div>
+      </section>
+
+      <footer class="guide-citations">
+        <p class="micro-label">Sources and methodology</p>
+        <p>Market ranges were cross-checked against publicly available pricing guidance. They are indicative only; requirements and commercial terms determine an actual proposal.</p>
+        <ul>{sources.map((source) => <li><a href={source.href} target="_blank" rel="noreferrer">{source.label} ↗</a></li>)}</ul>
+      </footer>
+    </article>
+
+    <section class="commercial-cta reveal">
+      <p class="micro-label">Clear scope before code</p>
+      <div><h2>Need a price for your actual project?</h2><p>Share the current stage, required pages or workflows, integrations, and ideal launch window. I will respond with the questions needed to shape a practical scope.</p></div>
+      <a href="#project-inquiry" data-contact-trigger>Discuss your project <Icon name="arrow" class="size-6" /></a>
+    </section>
+  </main>
+
+  <SiteFooter />
+  <PageMotion />
+</Layout>
